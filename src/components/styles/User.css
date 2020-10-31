@@ -1,0 +1,21 @@
+.details {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid lightblue;
+}
+
+.profile-picture {
+  width: 30%;
+  height: 90px;
+  margin: 10px;
+  font-size: small;
+  border: 1px solid;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
