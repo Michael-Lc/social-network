@@ -1,0 +1,22 @@
+.navbar {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 115, 64);
+}
+
+.logo {
+  color: white;
+  cursor: pointer;
+}
+
+.menuOpen {
+  border: none;
+  padding: 5px;
+  font-size: 15px;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+}
