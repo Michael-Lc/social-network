@@ -1,7 +1,7 @@
 import React from "react";
 import faker from "faker";
 
-import "./styles/Home.css";
+import styles from "./styles/Home.module.css";
 
 function Home() {
   const data = Array.from(Array(20), () => ({
@@ -13,12 +13,12 @@ function Home() {
   return (
     <div className="container">
       {data.map((post) => (
-        <div key={data.indexOf(post)} className="post">
-          <div className="post-user">
+        <div key={data.indexOf(post)} className={styles.post}>
+          <div className={styles.postUser}>
             <img src={post.profileImage} alt="" />
             <span>{post.username}</span>
           </div>
-          <div className="post-content">
+          <div className={styles.postContent}>
             <p>{post.postContent}</p>
           </div>
         </div>

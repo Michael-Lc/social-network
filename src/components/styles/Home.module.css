@@ -6,30 +6,30 @@
   border: 1px solid lightseagreen;
 }
 
-.post-user {
+.postUser {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.post-user > img {
+.postUser > img {
   width: 40px;
   height: 40px;
   border: 1px solid lightcoral;
   border-radius: 50%;
 }
 
-.post-user > span {
+.postUser > span {
   display: inline-block;
   padding: 5px;
 }
 
-.post-content {
+.postContent {
   display: flex;
   flex-direction: column;
 }
 
-.post-content > p {
+.postContent > p {
   margin: 0;
   padding: 5px;
 }
