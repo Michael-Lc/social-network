@@ -1,0 +1,35 @@
+.post {
+  width: 98%;
+  margin: 1px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid lightseagreen;
+}
+
+.post-user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.post-user > img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid lightcoral;
+  border-radius: 50%;
+}
+
+.post-user > span {
+  display: inline-block;
+  padding: 5px;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-content > p {
+  margin: 0;
+  padding: 5px;
+}
