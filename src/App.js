@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Navbar} />
+        <Route exact path="/" component={Comment} />
       </Switch>
     </Router>
   );

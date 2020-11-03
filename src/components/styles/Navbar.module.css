@@ -14,9 +14,16 @@
 
 .menuOpen {
   border: none;
-  padding: 5px;
-  font-size: 15px;
+  /* padding: 5px; */
+  width: 12%;
+  /* font-size: 15px; */
   color: white;
   background-color: transparent;
   cursor: pointer;
+}
+
+.menuOpen:focus {
+  outline: none;
+  opacity: 0.7;
+  filter: opacity(70);
 }
