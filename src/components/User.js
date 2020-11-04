@@ -1,5 +1,7 @@
 import React from "react";
 
+import withNavbar from "../hoc/withNavbar";
+
 import styles from "./styles/User.module.css";
 
 function User() {
@@ -15,4 +17,4 @@ function User() {
   );
 }
 
-export default User;
+export default withNavbar(User);

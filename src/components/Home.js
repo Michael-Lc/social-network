@@ -1,6 +1,8 @@
 import React from "react";
 import faker from "faker";
 
+import withNavbar from "../hoc/withNavbar";
+
 import styles from "./styles/Home.module.css";
 
 function Home() {
@@ -27,4 +29,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withNavbar(Home);

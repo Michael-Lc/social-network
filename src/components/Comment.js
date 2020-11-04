@@ -1,6 +1,8 @@
 import React from "react";
 import faker from "faker";
 
+import withNavbar from "../hoc/withNavbar";
+
 import styles from "./styles/Comment.module.css";
 import postStyles from "./styles/Home.module.css";
 
@@ -39,4 +41,4 @@ function Comment() {
   );
 }
 
-export default Comment;
+export default withNavbar(Comment);
