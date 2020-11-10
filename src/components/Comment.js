@@ -4,7 +4,7 @@ import faker from "faker";
 import withNavbar from "../hoc/withNavbar";
 
 import styles from "./styles/Comment.module.css";
-import postStyles from "./styles/Home.module.css";
+import postStyles from "./styles/Post.module.css";
 
 function Comment() {
   const comments = Array.from(Array(3), () => ({

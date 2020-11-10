@@ -1,9 +1,9 @@
 import React from "react";
 import faker from "faker";
 
-import withNavbar from "../hoc/withNavbar";
+import Posts from "./Posts";
 
-import styles from "./styles/Home.module.css";
+import withNavbar from "../hoc/withNavbar";
 
 function Home() {
   const data = Array.from(Array(20), () => ({
@@ -14,18 +14,7 @@ function Home() {
 
   return (
     <div className="container">
-      {data.map((post) => (
-        <div key={data.indexOf(post)} className={styles.post}>
-          <div className={styles.postUser}>
-            <img src={post.profileImage} alt="" />
-            <span>{post.username}</span>
-          </div>
-          <div className={styles.postContent}>
-            <p>{post.postContent}</p>
-          </div>
-          <div className={styles.bottomIconsContainer}>comment</div>
-        </div>
-      ))}
+      <Posts data={data} />
     </div>
   );
 }
