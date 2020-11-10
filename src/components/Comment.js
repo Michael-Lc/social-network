@@ -24,6 +24,7 @@ function Comment() {
           <p>Post</p>
         </div>
       </div>
+
       <div className={styles.commentContainer}>
         {comments.map((comment) => (
           <div className={styles.comment} key={comments.indexOf(comment)}>

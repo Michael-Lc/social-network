@@ -18,9 +18,14 @@ code {
 
 .container {
   width: 100%;
-  padding: 2px;
+  /* padding: 2px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* background-color: whitesmoke; */
+}
+
+svg {
+  pointer-events: none;
 }

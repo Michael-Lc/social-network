@@ -1,2 +1,4 @@
 # Navbar
 # font size
+# post list component
+# render posts on user page

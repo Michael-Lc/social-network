@@ -33,3 +33,9 @@
   margin: 0;
   padding: 5px;
 }
+
+.bottomIconsContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

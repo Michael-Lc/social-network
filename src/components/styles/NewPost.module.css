@@ -1,0 +1,18 @@
+.newPostBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  width: 60px;
+  padding: 10px;
+  outline: none;
+  color: white;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: rgb(255, 115, 64);
+  box-shadow: 1px 2px 10px lightsalmon;
+}
+
+.newPostBtn:hover {
+  opacity: 0.8;
+  filter: opacity(80);
+}

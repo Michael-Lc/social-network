@@ -23,6 +23,7 @@ function Home() {
           <div className={styles.postContent}>
             <p>{post.postContent}</p>
           </div>
+          <div className={styles.bottomIconsContainer}>comment</div>
         </div>
       ))}
     </div>

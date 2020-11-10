@@ -23,9 +23,7 @@
 
 .menuOpen {
   border: none;
-  /* padding: 5px; */
   width: 35px;
-  /* font-size: 15px; */
   color: white;
   background-color: transparent;
   cursor: pointer;
@@ -37,16 +35,13 @@
   filter: opacity(70);
 }
 
-.menuOpen > svg {
-  pointer-events: none;
-}
-
 .navMenu {
   display: none;
   position: absolute;
   top: 40px;
   right: 15px;
   z-index: 1;
+  border-radius: 5px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
   transition: display 0.5s;
 }
@@ -60,6 +55,7 @@
   padding: 0;
   color: white;
   list-style: none;
+  border-radius: 5px;
   background-color: rgb(238, 125, 105);
 }
 
