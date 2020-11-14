@@ -17,15 +17,16 @@ function Comment() {
     <div className="container">
       <div className={styles.post}>
         <div className={postStyles.postUser}>
-          <img src="#" alt="" />
-          <span>Username</span>
+          <img src={faker.image.avatar()} alt="profile" />
+          <span>{faker.name.lastName()}</span>
         </div>
         <div className={postStyles.postContent}>
-          <p>Post</p>
+          <p>{faker.random.words()}</p>
         </div>
       </div>
 
       <div className={styles.commentContainer}>
+        <span>3 Comments</span>
         {comments.map((comment) => (
           <div className={styles.comment} key={comments.indexOf(comment)}>
             <div className={postStyles.postUser}>

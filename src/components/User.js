@@ -22,8 +22,8 @@ function User() {
           className={styles.profilePicture}
           alt="Profile"
         />
-        <div>Name</div>
-        <div>Description</div>
+        <div className={styles.userName}>{faker.name.firstName()}</div>
+        <div className={styles.description}>{faker.random.words(10)}</div>
       </div>
       <Posts data={data} />
     </div>
