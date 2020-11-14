@@ -8,7 +8,7 @@ export default function withNavbar(Component) {
       <div style={{ margin: 0, padding: 0 }}>
         <Navbar />
         {/* <br /> */}
-        <Component />
+        <Component {...props} />
       </div>
     );
   };

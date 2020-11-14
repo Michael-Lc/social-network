@@ -22,7 +22,7 @@ function Navbar() {
     // console.log(event.target);
     if (!event.target.matches(".Navbar_menuOpen__-nRHv")) {
       const menu = document.getElementById("navMenu");
-      console.log(menu.classList);
+      // console.log(menu.classList);
 
       for (const c of menu.classList) {
         if (c.includes("Navbar_show")) {

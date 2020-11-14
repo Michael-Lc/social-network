@@ -1,22 +1,33 @@
-import React from "react";
-import faker from "faker";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { fetchPosts } from "../actions/postActions";
 
 import Posts from "./Posts";
 
 import withNavbar from "../hoc/withNavbar";
 
-function Home() {
-  const data = Array.from(Array(20), () => ({
-    username: faker.name.lastName(),
-    profileImage: faker.image.avatar(),
-    postContent: faker.lorem.sentence(),
-  }));
+function Home({ posts, fetchPosts }) {
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
+
+  console.log(posts);
 
   return (
     <div className="container">
-      <Posts data={data} />
+      <Posts data={posts} />
     </div>
   );
 }
 
-export default withNavbar(Home);
+Home.propTypes = {
+  posts: PropTypes.array.isRequired,
+  fetchPosts: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  posts: state.posts.posts,
+});
+
+export default connect(mapStateToProps, { fetchPosts })(withNavbar(Home));

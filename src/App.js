@@ -7,13 +7,14 @@ import User from "./components/User";
 import Comment from "./components/Comment";
 
 import store from "./store";
+console.log(store.getState());
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={User} />
         </Switch>
       </Router>
     </Provider>
