@@ -2,3 +2,13 @@
 # font size
 # post list component
 # render posts on user page
+
+# REACT ROUTER
+# new post component
+# which part of post will be the link
+# read more...
+# style comment button
+# New Post Icon
+# User name section links to user component
+# comment to comment component
+# color palette

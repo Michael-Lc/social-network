@@ -4,6 +4,7 @@
   display: flex;
   position: sticky;
   top: 0;
+  z-index: 2;
   justify-content: space-between;
   align-items: center;
   background-color: rgb(255, 115, 64);
@@ -68,4 +69,10 @@
 
 .show {
   display: block;
+}
+
+@media only screen and (min-width: 600px) {
+  .navMenu > ul > li {
+    font-size: 17px;
+  }
 }

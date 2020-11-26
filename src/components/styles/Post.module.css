@@ -40,8 +40,8 @@
   align-items: center;
 }
 
-/* @media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) {
   .post {
-    width: 78%;
+    width: 90%;
   }
-} */
+}

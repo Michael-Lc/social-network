@@ -26,12 +26,17 @@ code {
 .container {
   width: 100%;
   margin-bottom: 5px;
-  /* padding: 2px; */
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
   /* background-color: whitesmoke; */
+}
+
+.noScroll {
+  overflow: hidden;
 }
 
 svg {

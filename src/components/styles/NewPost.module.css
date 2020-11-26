@@ -9,10 +9,98 @@
   border-radius: 50%;
   border: 2px solid white;
   background-color: rgb(255, 115, 64);
-  box-shadow: 1px 2px 10px lightsalmon;
+  box-shadow: 1px 1px 4px lightsalmon;
 }
 
 .newPostBtn:hover {
   opacity: 0.8;
   filter: opacity(80);
+}
+
+.createPostContainer {
+  display: none;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgb(230, 134, 66);
+  animation: slideUp 0.7s;
+}
+
+@keyframes slideUp {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.topIconsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.topIconsContainer > .closeBtn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin: 10px;
+  color: oldlace;
+  font-size: 35px;
+}
+
+.inputContainer {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.inputContainer > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formControl {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formControl > .postInput {
+  width: 100%;
+  margin: 5px;
+  min-height: 100px;
+  border: none;
+  outline: none;
+  color: white;
+  resize: none;
+  font-size: 14px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.postInput::placeholder {
+  color: gainsboro;
+}
+
+@media only screen and (min-width: 600px) {
+  .newPostBtn {
+    right: 50px;
+  }
 }
