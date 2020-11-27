@@ -11,4 +11,4 @@
 # New Post Icon
 # User name section links to user component
 # comment to comment component
-# color palette
+# color palette: dark green, peach, warm gold

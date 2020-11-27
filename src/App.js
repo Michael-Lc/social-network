@@ -14,7 +14,9 @@ function App() {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/" component={User} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/user/:id" component={User} />
+          <Route exact path="/post/:id" component={Comment} />
         </Switch>
       </Router>
     </Provider>
