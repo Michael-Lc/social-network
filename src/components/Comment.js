@@ -1,37 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import faker from "faker";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { fetchPost, fetchComments } from "../actions/commentActions";
 
 import withNavbar from "../hoc/withNavbar";
 
 import styles from "./styles/Comment.module.css";
 import postStyles from "./styles/Post.module.css";
 
-function Comment() {
-  const comments = Array.from(Array(3), () => ({
-    userId: faker.finance.account(8),
-    username: faker.name.firstName(),
-    profileImage: faker.image.avatar(),
-    content: faker.lorem.sentence(),
-  }));
+function Comment({ post, comments, fetchPost, fetchComments, match }) {
+  useEffect(() => {
+    const id = match.params.id;
+    fetchPost(id);
+    fetchComments(id);
+  }, [match, fetchComments, fetchPost]);
+
+  console.log(post, comments);
 
   return (
     <div className="container">
       <div className={styles.post}>
         <div className={postStyles.postUser}>
-          <Link to={{ pathname: `/user/${faker.finance.account(8)}` }}>
+          <Link to={{ pathname: `/user/${post.userId}` }}>
             <img
-              src={faker.image.avatar()}
+              src={post.profileImage}
               alt=""
               className={postStyles.profileImage}
             />
           </Link>
-          <Link to={{ pathname: `/user/${faker.finance.account(8)}` }}>
-            <span className={postStyles.username}>{faker.name.lastName()}</span>
+          <Link to={{ pathname: `/user/${post.userId}` }}>
+            <span className={postStyles.username}>{post.username}</span>
           </Link>
         </div>
         <div className={postStyles.postContent}>
-          <p>{faker.random.words()}</p>
+          <p>{post.postContent}</p>
         </div>
       </div>
 
@@ -62,4 +65,23 @@ function Comment() {
   );
 }
 
-export default withNavbar(Comment);
+Comment.propTypes = {
+  post: PropTypes.object.isRequired,
+  comments: PropTypes.array.isRequired,
+  fetchPost: PropTypes.func.isRequired,
+  fetchComments: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  post: state.comments.post,
+  comments: state.comments.comments,
+});
+
+const mapDispatchToProps = {
+  fetchPost,
+  fetchComments,
+};
+
+export default connect(mapStateToProps, { ...mapDispatchToProps })(
+  withNavbar(Comment)
+);

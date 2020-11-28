@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchPosts } from "../actions/postActions";
+import { fetchUserPosts } from "../actions/postActions";
 import { fetchUser } from "../actions/userActions";
 
 import withNavbar from "../hoc/withNavbar";
@@ -9,11 +9,14 @@ import Posts from "./Posts";
 
 import styles from "./styles/User.module.css";
 
-function User({ posts, user, fetchPosts, fetchUser }) {
+function User({ posts, user, fetchUserPosts, fetchUser, match }) {
   useEffect(() => {
-    fetchPosts();
-    fetchUser();
-  }, [fetchPosts, fetchUser]);
+    const id = match.params.id;
+    fetchUserPosts(id);
+    fetchUser(id);
+  }, [fetchUserPosts, fetchUser, match]);
+
+  console.log(posts);
 
   return (
     <div className="container">
@@ -34,17 +37,17 @@ function User({ posts, user, fetchPosts, fetchUser }) {
 User.propTypes = {
   posts: PropTypes.array.isRequired,
   user: PropTypes.object.isRequired,
-  fetchPosts: PropTypes.func.isRequired,
+  fetchUserPosts: PropTypes.func.isRequired,
   fetchUser: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  posts: state.posts.posts,
+  posts: state.posts.userPosts,
   user: state.user.user,
 });
 
 const mapDispatchToProps = {
-  fetchPosts,
+  fetchUserPosts,
   fetchUser,
 };
 

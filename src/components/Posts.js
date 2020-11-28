@@ -24,7 +24,7 @@ function Posts(props) {
               </Link>
             </span>
           </div>
-          <Link to={{ pathname: `/post/${post.id}` }}>
+          <Link to={{ pathname: `/post/${post.id}`, state: post }}>
             <div className={styles.postContent}>
               <p>{post.postContent}</p>
             </div>

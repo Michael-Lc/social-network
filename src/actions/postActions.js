@@ -1,4 +1,4 @@
-import { FETCH_POSTS } from "./types";
+import { FETCH_POSTS, FETCH_USER_POSTS } from "./types";
 import faker from "faker";
 
 export const fetchPosts = () => (dispatch) => {
@@ -13,5 +13,23 @@ export const fetchPosts = () => (dispatch) => {
   dispatch({
     type: FETCH_POSTS,
     payload: posts,
+  });
+};
+
+export const fetchUserPosts = (userId) => (dispatch) => {
+  const username = faker.name.lastName();
+  const profileImage = faker.image.avatar();
+
+  const userPosts = Array.from(Array(5), () => ({
+    id: faker.finance.account(10),
+    userId: userId,
+    username: username,
+    profileImage: profileImage,
+    postContent: faker.lorem.sentence(),
+  }));
+
+  dispatch({
+    type: FETCH_USER_POSTS,
+    payload: userPosts,
   });
 };
