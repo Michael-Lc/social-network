@@ -1,11 +1,13 @@
 .newPostBtn {
   position: fixed;
   bottom: 40px;
-  right: 30px;
+  right: 20px;
   width: 60px;
   padding: 10px;
   outline: none;
   color: white;
+  cursor: pointer;
+  outline: none;
   border-radius: 50%;
   border: 2px solid white;
   background-color: rgb(255, 115, 64);
@@ -29,11 +31,11 @@
   justify-content: flex-start;
   align-items: center;
   background-color: rgb(230, 134, 66);
-  transition: all 0.6s;
-  animation: slideUp 0.6s;
+  transition: all 0.4s;
+  animation: slide 0.6s;
 }
 
-@keyframes slideUp {
+@keyframes slide {
   from {
     left: 100%;
   }
@@ -46,7 +48,7 @@
 .topIconsContainer {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -54,9 +56,27 @@
   border: none;
   outline: none;
   background-color: transparent;
-  margin: 10px;
+  margin: 3px;
   color: oldlace;
   font-size: 35px;
+}
+
+.submitBtn {
+  margin: 3px;
+  color: white;
+  font-size: 16px;
+  padding: 5px;
+  width: 4rem;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  transition: all 0.4s;
+  background-color: rgb(73, 168, 114);
+}
+
+.submitBtn:hover {
+  color: #ddd;
+  background-color: seagreen;
 }
 
 .inputContainer {

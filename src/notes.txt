@@ -1,14 +1,14 @@
-# Navbar
-# font size
-# post list component
-# render posts on user page
+# Navbar // done
+# post list component// done
+# render posts on user page // done
+# font size !!!
 
 # REACT ROUTER
-# new post component
-# which part of post will be the link
+# which part of post will be the link // done
+# User name section links to user component // done
+# comment to comment component // done
+# new post component // in progress...
 # read more...
 # style comment button
-# New Post Icon
-# User name section links to user component
-# comment to comment component
+# New Post Icon, postIcon
 # color palette: dark green, peach, warm gold

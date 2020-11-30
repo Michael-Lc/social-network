@@ -10,7 +10,7 @@
   background-color: rgb(255, 115, 64);
 }
 
-.logo {
+.logo > a {
   color: white;
   cursor: pointer;
   display: flex;
@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-.logo > span {
+.logo > a > span {
   padding: 5px;
 }
 

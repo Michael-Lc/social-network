@@ -39,7 +39,7 @@ function Comment({ post, comments, fetchPost, fetchComments, match }) {
       </div>
 
       <div className={styles.commentContainer}>
-        <span>3 Comments</span>
+        <span>{comments.length} Comments</span>
         {comments.map((comment) => (
           <div className={styles.comment} key={comments.indexOf(comment)}>
             <div className={postStyles.postUser}>
