@@ -11,4 +11,8 @@
 # read more...
 # style comment button
 # New Post Icon, postIcon
+# post options, options modal
+# delete post
+# login, logout
+# comments
 # color palette: dark green, peach, warm gold

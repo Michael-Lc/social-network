@@ -12,6 +12,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
 }
 
 .profileImage {
@@ -24,6 +25,15 @@
 .username {
   display: inline-block;
   padding: 5px;
+}
+
+.openOptions {
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
 }
 
 .postContent {

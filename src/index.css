@@ -47,3 +47,16 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+i {
+  border: solid coral;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  pointer-events: none;
+}
+
+.down {
+  transform: rotate(43deg);
+  -webkit-transform: rotate(44deg);
+}
