@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Comment } from "./Icons";
 
 import NewPost from "./NewPost";
 import PostOptions from "./PostOptions";
@@ -54,7 +55,12 @@ function Posts(props) {
               <p>{post.postContent}</p>
             </div>
           </Link>
-          <div className={styles.bottomIconsContainer}>comment</div>
+          <div className={styles.bottomIconsContainer}>
+            <Link to={{ pathname: `/post/${post.id}`, state: post }}>
+              <Comment />
+              <span>comment</span>
+            </Link>
+          </div>
         </div>
       ))}
       <PostOptions />

@@ -52,6 +52,23 @@
   align-items: center;
 }
 
+.bottomIconsContainer > a {
+  color: oldlace;
+  display: flex;
+  font-size: 13px;
+  justify-content: center;
+  align-items: center;
+  background-color: coral;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+.bottomIconsContainer > a > span {
+  display: block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
 @media only screen and (min-width: 600px) {
   .post {
     width: 90%;

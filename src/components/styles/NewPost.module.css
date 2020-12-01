@@ -63,15 +63,19 @@
 
 .submitBtn {
   margin: 3px;
-  color: white;
-  font-size: 16px;
-  padding: 5px;
-  width: 4rem;
+  color: oldlace;
+  font-size: 17px;
+  padding: 4px;
+  width: 3.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   outline: none;
   border: 1px solid transparent;
-  border-radius: 15px;
+  border-radius: 18px;
   transition: all 0.4s;
-  background-color: rgb(73, 168, 114);
+  /* background-color: rgb(73, 168, 114); */
+  background-color: transparent;
 }
 
 .submitBtn:hover {

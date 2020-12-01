@@ -41,6 +41,18 @@ code {
 
 svg {
   pointer-events: none;
+  align-self: center;
+}
+
+.postLogo {
+  margin-top: 3px;
+  margin-left: 5px;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+
+.commentLogo {
+  margin-left: 5px;
 }
 
 a {
