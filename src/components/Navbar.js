@@ -7,29 +7,28 @@ import styles from "./styles/Navbar.module.css";
 function Navbar() {
   const toggleMenu = () => {
     const menu = document.getElementById("navMenu");
-    // console.log(menu.classList);
 
-    for (const c of menu.classList) {
-      if (c.includes("Navbar_show")) {
-        menu.classList.remove(c);
-        return;
-      }
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
     }
-
-    menu.classList.add(styles.show);
   };
 
   window.onclick = (event) => {
     // console.log(event.target);
+    const modal = document.getElementById("modal");
+
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+
     if (!event.target.matches(".Navbar_menuOpen__-nRHv")) {
       const menu = document.getElementById("navMenu");
       // console.log(menu.classList);
 
-      for (const c of menu.classList) {
-        if (c.includes("Navbar_show")) {
-          menu.classList.remove(c);
-          return;
-        }
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
       }
     }
   };

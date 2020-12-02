@@ -1,7 +1,7 @@
-import { FETCH_USER } from "./types";
+import { FETCH_USER_DETAILS, LOGIN, LOGOUT } from "./types";
 import faker from "faker";
 
-export const fetchUser = (userId) => (dispatch) => {
+export const fetchUserDetails = (userId) => (dispatch) => {
   const user = {
     userId: faker.finance.account(8),
     username: faker.name.firstName(),
@@ -10,7 +10,25 @@ export const fetchUser = (userId) => (dispatch) => {
   };
 
   dispatch({
-    type: FETCH_USER,
+    type: FETCH_USER_DETAILS,
     payload: user,
+  });
+};
+
+export const Login = () => (dispatch) => {
+  const user = {
+    id: faker.finance.account(8),
+    username: faker.name.firstName(),
+  };
+
+  dispatch({
+    type: LOGIN,
+    payload: user,
+  });
+};
+
+export const Logout = () => (dispatch) => {
+  dispatch({
+    type: LOGOUT,
   });
 };

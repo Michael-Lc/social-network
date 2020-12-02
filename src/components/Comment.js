@@ -82,6 +82,7 @@ const mapDispatchToProps = {
   fetchComments,
 };
 
-export default connect(mapStateToProps, { ...mapDispatchToProps })(
-  withNavbar(Comment)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withNavbar(Comment));

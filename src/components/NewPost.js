@@ -68,4 +68,4 @@ const mapDispatchToProps = {
   addPost,
 };
 
-export default connect(null, { ...mapDispatchToProps })(NewPost);
+export default connect(null, mapDispatchToProps)(NewPost);

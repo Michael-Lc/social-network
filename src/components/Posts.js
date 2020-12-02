@@ -18,13 +18,6 @@ function Posts(props) {
     }
   };
 
-  window.onclick = function (event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  };
-
   return (
     <>
       {props.data.map((post) => (
