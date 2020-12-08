@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Edit, Delete } from "./Icons";
+import { EditIcon, DeleteIcon } from "./Icons";
 
 import styles from "./styles/PostOptions.module.css";
 
@@ -11,11 +11,11 @@ export const PostOptions = () => {
       <div className={styles.modal} id="modal">
         <div className={styles.modalContent}>
           <button className={styles.modalBtn}>
-            <Edit />
+            <EditIcon />
             <span>Edit Post</span>
           </button>
           <button className={styles.modalBtn}>
-            <Delete /> <span>Delete Post</span>
+            <DeleteIcon /> <span>Delete Post</span>
           </button>
         </div>
       </div>

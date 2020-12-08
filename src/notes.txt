@@ -16,7 +16,7 @@
 # comments
 # color palette: dark green, peach, warm gold
 
-# login, logout
+# login, logout, backgrounds
 # account, login, logout icon
 # new post design for laptops
 # post options for laptops

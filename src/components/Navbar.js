@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Menu, Logo } from "./Icons";
+import {
+  Logo,
+  MenuIcon,
+  LoginIcon,
+  SignUpIcon,
+  UserIcon,
+  LogoutIcon,
+} from "./Icons";
 import styles from "./styles/Navbar.module.css";
 import faker from "faker";
 
@@ -42,7 +49,7 @@ function Navbar() {
         </Link>
       </span>
       <button className={styles.menuOpen} onClick={toggleMenu} id="menuOpen">
-        <Menu />
+        <MenuIcon />
       </button>
 
       <div className={styles.navMenu} id="navMenu" tabIndex="1">
@@ -51,20 +58,28 @@ function Navbar() {
             <li className={styles.menuItem}>
               {" "}
               <Link to={{ pathname: `/user/${faker.finance.account(8)}` }}>
-                My Account
+                <UserIcon /> My Account
               </Link>{" "}
             </li>
-            <li className={styles.menuItem}>Logout</li>
+            <li className={styles.menuItem}>
+              <Link>
+                <LogoutIcon /> Logout
+              </Link>
+            </li>
           </ul>
         ) : (
           <ul>
             <li className={styles.menuItem}>
               {" "}
-              <Link to={{ pathname: `/login` }}>Login</Link>{" "}
+              <Link to={{ pathname: `/login` }}>
+                <LoginIcon /> Login{" "}
+              </Link>{" "}
             </li>
             <li className={styles.menuItem}>
               {" "}
-              <Link to={{ pathname: `/signup` }}>Sign Up</Link>{" "}
+              <Link to={{ pathname: `/signup` }}>
+                <SignUpIcon /> Sign Up{" "}
+              </Link>{" "}
             </li>
           </ul>
         )}

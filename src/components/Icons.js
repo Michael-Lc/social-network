@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Menu() {
+export function MenuIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ export function Menu() {
   );
 }
 
-export function MenuSmall() {
+export function MenuIconSmall() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ export function ReactLogo() {
   );
 }
 
-export function Edit() {
+export function EditIcon() {
   return (
     <svg
       width="20"
@@ -88,7 +88,7 @@ export function Edit() {
   );
 }
 
-export function Delete() {
+export function DeleteIcon() {
   return (
     <svg
       width="20"
@@ -108,7 +108,7 @@ export function Delete() {
   );
 }
 
-export function Comment() {
+export function CommentIcon() {
   return (
     <svg
       className="commentLogo"
@@ -129,7 +129,7 @@ export function Comment() {
   );
 }
 
-export function Post() {
+export function PostIcon() {
   return (
     <svg
       className="postLogo"
@@ -145,6 +145,104 @@ export function Post() {
         strokeLinejoin="round"
         strokeWidth={2}
         d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+      />
+    </svg>
+  );
+}
+
+export function UserIcon() {
+  return (
+    <svg
+      width="20"
+      style={{ marginRight: "5px" }}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+}
+
+export function SignUpIcon() {
+  return (
+    <svg
+      width="20"
+      style={{ marginRight: "5px" }}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+      />
+    </svg>
+  );
+}
+
+export function DeleteAccountIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6"
+      />
+    </svg>
+  );
+}
+
+export function LogoutIcon() {
+  return (
+    <svg
+      width="20"
+      style={{ marginRight: "5px" }}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+      />
+    </svg>
+  );
+}
+
+export function LoginIcon() {
+  return (
+    <svg
+      width="20"
+      style={{ marginRight: "5px" }}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
       />
     </svg>
   );

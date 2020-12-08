@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addPost } from "../actions/postActions";
-import { Post } from "./Icons";
+import { PostIcon } from "./Icons";
 
 import styles from "./styles/NewPost.module.css";
 
@@ -34,7 +34,7 @@ function NewPost({ addPost }) {
   return (
     <>
       <button className={styles.newPostBtn} onClick={openMenu}>
-        <Post />
+        <PostIcon />
       </button>
 
       <div className={styles.createPostContainer} id="menu">
@@ -43,7 +43,7 @@ function NewPost({ addPost }) {
             &times;
           </button>
           <button className={styles.submitBtn} onClick={createPost}>
-            <Post />
+            <PostIcon />
           </button>
         </div>
         <div className={styles.inputContainer}>
