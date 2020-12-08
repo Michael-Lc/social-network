@@ -13,6 +13,10 @@
 # New Post Icon, postIcon
 # post options, options modal
 # delete post
-# login, logout
 # comments
 # color palette: dark green, peach, warm gold
+
+# login, logout
+# account, login, logout icon
+# new post design for laptops
+# post options for laptops

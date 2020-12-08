@@ -8,13 +8,15 @@ import PostOptions from "./PostOptions";
 import styles from "./styles/Post.module.css";
 
 function Posts(props) {
+  // store id in state and pass it to props for postOptions
+
   const toggleOptions = () => {
     const modal = document.getElementById("modal");
 
-    if (modal.style.display === "block") {
+    if (modal.style.display === "flex") {
       modal.style.display = "none";
     } else {
-      modal.style.display = "block";
+      modal.style.display = "flex";
     }
   };
 

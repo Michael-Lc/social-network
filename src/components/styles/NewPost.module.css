@@ -55,10 +55,11 @@
 .topIconsContainer > .closeBtn {
   border: none;
   outline: none;
-  background-color: transparent;
+  cursor: pointer;
   margin: 3px;
   color: oldlace;
   font-size: 35px;
+  background-color: transparent;
 }
 
 .submitBtn {

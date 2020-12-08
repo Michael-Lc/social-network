@@ -60,15 +60,39 @@
   background-color: rgb(238, 125, 105);
 }
 
-.navMenu > ul > li {
+.menuItem {
   /* margin: 5px; */
   padding: 8px 20px;
   text-align: left;
   cursor: pointer;
 }
 
+.menuItem:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 @media only screen and (min-width: 600px) {
-  .navMenu > ul > li {
+  .menuItem {
     font-size: 17px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .menuOpen {
+    display: none;
+  }
+
+  .navMenu {
+    display: block;
+    position: relative;
+    top: auto;
+    right: auto;
+    box-shadow: none;
+  }
+
+  .navMenu > ul {
+    display: flex;
+    border-radius: 0;
+    background-color: transparent;
   }
 }
