@@ -45,6 +45,10 @@
   }
 }
 
+.modal {
+  width: 100%;
+}
+
 .topIconsContainer {
   width: 100%;
   display: flex;
@@ -72,6 +76,7 @@
   justify-content: center;
   align-items: center;
   outline: none;
+  cursor: pointer;
   border: 1px solid transparent;
   border-radius: 18px;
   transition: all 0.4s;
@@ -80,8 +85,7 @@
 }
 
 .submitBtn:hover {
-  color: #ddd;
-  background-color: seagreen;
+  color: seagreen;
 }
 
 .inputContainer {
@@ -128,5 +132,31 @@
 @media only screen and (min-width: 600px) {
   .newPostBtn {
     right: 50px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .createPostContainer {
+    transition: all 0.7s;
+    justify-content: center;
+    background-color: transparent;
+    animation: zoomUp 0.3s;
+  }
+
+  @keyframes zoomUp {
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .modal {
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: rgba(210, 105, 30, 0.96);
   }
 }

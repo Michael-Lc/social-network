@@ -13,7 +13,9 @@ function NewPost({ addPost }) {
     const input = document.getElementById("postContent");
     menu.style.left = 0;
     menu.style.display = "flex";
-    document.body.classList += " noScroll";
+    if (!window.matchMedia("(min-width: 769px)")) {
+      document.body.classList += " noScroll";
+    }
     input.focus();
   };
 
@@ -38,26 +40,32 @@ function NewPost({ addPost }) {
       </button>
 
       <div className={styles.createPostContainer} id="menu">
-        <div className={styles.topIconsContainer}>
-          <button className={styles.closeBtn} onClick={closeMenu} id="closeBtn">
-            &times;
-          </button>
-          <button className={styles.submitBtn} onClick={createPost}>
-            <PostIcon />
-          </button>
-        </div>
-        <div className={styles.inputContainer}>
-          <form>
-            <div className={styles.formControl}>
-              <textarea
-                value={postContent}
-                onChange={(e) => setPostContent(e.target.value)}
-                className={styles.postInput}
-                id="postContent"
-                placeholder="Type here..."
-              />
-            </div>
-          </form>
+        <div className={styles.modal}>
+          <div className={styles.topIconsContainer}>
+            <button
+              className={styles.closeBtn}
+              onClick={closeMenu}
+              id="closeBtn"
+            >
+              &times;
+            </button>
+            <button className={styles.submitBtn} onClick={createPost}>
+              <PostIcon />
+            </button>
+          </div>
+          <div className={styles.inputContainer}>
+            <form>
+              <div className={styles.formControl}>
+                <textarea
+                  value={postContent}
+                  onChange={(e) => setPostContent(e.target.value)}
+                  className={styles.postInput}
+                  id="postContent"
+                  placeholder="Type here..."
+                />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </>
