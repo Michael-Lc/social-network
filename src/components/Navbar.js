@@ -1,5 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../actions/userActions";
 
 import {
   Logo,
@@ -12,7 +15,9 @@ import {
 import styles from "./styles/Navbar.module.css";
 import faker from "faker";
 
-function Navbar() {
+function Navbar(props) {
+  const { user, logout } = props;
+
   const toggleMenu = () => {
     const menu = document.getElementById("navMenu");
 
@@ -53,7 +58,7 @@ function Navbar() {
       </button>
 
       <div className={styles.navMenu} id="navMenu" tabIndex="1">
-        {false ? (
+        {user ? (
           <ul>
             <li className={styles.menuItem}>
               {" "}
@@ -62,7 +67,7 @@ function Navbar() {
               </Link>{" "}
             </li>
             <li className={styles.menuItem}>
-              <Link>
+              <Link onClick={logout}>
                 <LogoutIcon /> Logout
               </Link>
             </li>
@@ -88,4 +93,17 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+Navbar.propTypes = {
+  user: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  user: state.user.user,
+});
+
+const mapDispatchToProps = {
+  logout,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

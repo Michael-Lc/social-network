@@ -1,3 +1,6 @@
+// General Types
+export const SET_LOADING = "SET_LOADING";
+
 // Post Types
 export const FETCH_POSTS = "FETCH_POSTS";
 export const FETCH_USER_POSTS = "FETCH_USER_POSTS";
@@ -7,7 +10,8 @@ export const NEW_POST = "NEW_POST";
 // User Types
 export const FETCH_USER = "FETCH_USER";
 export const FETCH_USER_DETAILS = "FETCH_USER_DETAILS";
-export const LOGIN = "LOGIN";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_ERROR = "LOGIN_ERROR";
 export const LOGOUT = "LOGOUT";
 
 // Comment Types

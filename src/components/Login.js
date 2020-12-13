@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { login } from "../actions/userActions";
 
 import styles from "./styles/Form.module.css";
 import { Link } from "react-router-dom";
 
-export const Login = () => {
+export const Login = (props) => {
+  const { user, login, history, loading, error } = props;
+  console.log(error);
+
   const initialState = {
     email: "",
     password: "",
@@ -20,9 +24,16 @@ export const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    login(data);
     setData(initialState);
     return;
   };
+
+  useEffect(() => {
+    if (user) {
+      history.push("/");
+    }
+  }, [user, history]);
 
   return (
     <div className="container">
@@ -58,7 +69,11 @@ export const Login = () => {
             />
           </div>
           <div className={styles.formGroup}>
-            <button type="submit" className={styles.submitBtn}>
+            <button
+              type="submit"
+              className={styles.submitBtn}
+              disabled={loading}
+            >
               Log In
             </button>
           </div>
@@ -75,11 +90,17 @@ export const Login = () => {
 };
 
 Login.propTypes = {
-  prop: PropTypes,
+  login: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  user: state.user.user,
+  error: state.user.authError,
+  loading: state.user.loading,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  login,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
