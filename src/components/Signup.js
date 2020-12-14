@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { signup } from "../actions/userActions";
 
 import styles from "./styles/Form.module.css";
 
-export const Signup = () => {
+export const Signup = (props) => {
+  const { user, signup, history, loading, error } = props;
+  console.log(error);
+
   const initialState = {
     username: "",
     email: "",
@@ -22,9 +26,20 @@ export const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (data.password !== data.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    signup(data);
     setData(initialState);
     return;
   };
+
+  useEffect(() => {
+    if (user) {
+      history.push("/");
+    }
+  }, [user, history]);
 
   return (
     <div className="container">
@@ -84,7 +99,11 @@ export const Signup = () => {
             />
           </div>
           <div className={styles.formGroup}>
-            <button type="submit" className={styles.submitBtn}>
+            <button
+              type="submit"
+              className={styles.submitBtn}
+              disabled={loading}
+            >
               Sign Up
             </button>
           </div>
@@ -101,11 +120,17 @@ export const Signup = () => {
 };
 
 Signup.propTypes = {
-  prop: PropTypes,
+  signup: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  user: state.user.user,
+  error: state.user.authError,
+  loading: state.user.loading,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  signup,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

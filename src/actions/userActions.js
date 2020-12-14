@@ -22,6 +22,23 @@ export const fetchUserDetails = (userId) => (dispatch) => {
   });
 };
 
+export const signup = (credentials) => (dispatch) => {
+  dispatch({
+    type: SET_LOADING,
+    payload: true,
+  });
+
+  auth
+    .createUserWithEmailAndPassword(credentials.email, credentials.password)
+    .then((user) =>
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: user.uid,
+      })
+    )
+    .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.code }));
+};
+
 export const login = (credentials) => (dispatch) => {
   dispatch({
     type: SET_LOADING,
