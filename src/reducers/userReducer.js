@@ -4,6 +4,7 @@ import {
   LOGIN_ERROR,
   LOGOUT,
   SET_LOADING,
+  FETCH_USER,
 } from "../actions/types";
 
 const initialState = {
@@ -15,6 +16,8 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    case FETCH_USER:
+      return { ...state, user: { ...payload } };
     case SET_LOADING:
       return { ...state, loading: true };
     case FETCH_USER_DETAILS:

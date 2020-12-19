@@ -20,3 +20,8 @@
 # account, login, logout icon
 # new post design for laptops
 # post options for laptops
+
+#loading animation.............................
+# store user object id for retrieving user data in posts
+
+# later switch from fetching all posts to fetching new posts

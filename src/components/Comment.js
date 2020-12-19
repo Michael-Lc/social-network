@@ -20,47 +20,56 @@ function Comment({ post, comments, fetchPost, fetchComments, match }) {
 
   return (
     <div className="container">
-      <div className={styles.post}>
-        <div className={postStyles.postUser}>
-          <Link to={{ pathname: `/user/${post.userId}` }}>
-            <img
-              src={post.profileImage}
-              alt=""
-              className={postStyles.profileImage}
-            />
-          </Link>
-          <Link to={{ pathname: `/user/${post.userId}` }}>
-            <span className={postStyles.username}>{post.username}</span>
-          </Link>
-        </div>
-        <div className={postStyles.postContent}>
-          <p>{post.postContent}</p>
-        </div>
-      </div>
-
-      <div className={styles.commentContainer}>
-        <span>{comments.length} Comments</span>
-        {comments.map((comment) => (
-          <div className={styles.comment} key={comments.indexOf(comment)}>
+      {Object.keys(post).length !== 0 ? (
+        <>
+          <div className={styles.post}>
             <div className={postStyles.postUser}>
-              <Link to={{ pathname: `/user/${comment.userId}` }}>
+              <Link to={{ pathname: `/user/${post.userId}` }}>
                 <img
-                  src={comment.profileImage}
+                  src={post.profileImage}
                   alt=""
                   className={postStyles.profileImage}
                 />
               </Link>
-              <Link to={{ pathname: `/user/${comment.userId}` }}>
-                <span className={postStyles.username}>{comment.username}</span>
+              <Link to={{ pathname: `/user/${post.userId}` }}>
+                <span className={postStyles.username}>{post.username}</span>
               </Link>
             </div>
-
             <div className={postStyles.postContent}>
-              <p>{comment.content}</p>
+              <p>{post.postContent}</p>
             </div>
           </div>
-        ))}
-      </div>
+
+          <div className={styles.commentContainer}>
+            <span>{comments.length} Comments</span>
+            {comments &&
+              comments.map((comment) => (
+                <div className={styles.comment} key={comments.indexOf(comment)}>
+                  <div className={postStyles.postUser}>
+                    <Link to={{ pathname: `/user/${comment.userId}` }}>
+                      <img
+                        src={comment.profileImage}
+                        alt=""
+                        className={postStyles.profileImage}
+                      />
+                    </Link>
+                    <Link to={{ pathname: `/user/${comment.userId}` }}>
+                      <span className={postStyles.username}>
+                        {comment.username}
+                      </span>
+                    </Link>
+                  </div>
+
+                  <div className={postStyles.postContent}>
+                    <p>{comment.content}</p>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }

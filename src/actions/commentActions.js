@@ -1,3 +1,4 @@
+import { firestore } from "../firebase";
 import { FETCH_POST, FETCH_COMMENTS } from "./types";
 import faker from "faker";
 
@@ -10,10 +11,22 @@ export const fetchPost = (postId) => (dispatch) => {
     postContent: faker.lorem.sentence(),
   };
 
-  dispatch({
-    type: FETCH_POST,
-    payload: post,
-  });
+  firestore
+    .collection("posts")
+    .where("id", "==", postId)
+    .get()
+    .then((docs) => {
+      if (docs.size === 1) {
+        docs.forEach((doc) =>
+          dispatch({ type: FETCH_POST, payload: doc.data() })
+        );
+      }
+    });
+
+  // dispatch({
+  //   type: FETCH_POST,
+  //   payload: post,
+  // });
 };
 
 export const fetchComments = (postId) => (dispatch) => {
@@ -26,8 +39,23 @@ export const fetchComments = (postId) => (dispatch) => {
     content: faker.lorem.sentence(),
   }));
 
-  dispatch({
-    type: FETCH_COMMENTS,
-    payload: comments,
-  });
+  firestore
+    .collection("comments")
+    .where("postId", "==", postId)
+    .get()
+    .then((docs) => {
+      let docArray = [];
+
+      docs.forEach((doc) => docArray.push(doc.data()));
+
+      dispatch({
+        type: FETCH_COMMENTS,
+        payload: docArray,
+      });
+    });
+
+  // dispatch({
+  //   type: FETCH_COMMENTS,
+  //   payload: comments,
+  // });
 };

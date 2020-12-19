@@ -12,7 +12,11 @@ export default (state = initialState, { type, payload }) => {
     case FETCH_USER_POSTS:
       return { ...state, userPosts: [...payload] };
     case NEW_POST:
-      return { ...state, posts: [payload, ...state.posts] };
+      return {
+        ...state,
+        posts: [payload, ...state.posts],
+        userPosts: [payload, ...state.posts],
+      };
 
     default:
       return state;

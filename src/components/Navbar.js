@@ -13,7 +13,6 @@ import {
   LogoutIcon,
 } from "./Icons";
 import styles from "./styles/Navbar.module.css";
-import faker from "faker";
 
 function Navbar(props) {
   const { user, logout } = props;
@@ -29,7 +28,6 @@ function Navbar(props) {
   };
 
   window.onclick = (event) => {
-    // console.log(event.target);
     const modal = document.getElementById("modal");
     const menu = document.getElementById("navMenu");
 
@@ -38,8 +36,6 @@ function Navbar(props) {
     }
 
     if (menu !== null && !event.target.matches("#menuOpen")) {
-      // console.log(menu.classList);
-
       if (menu.style.display === "block") {
         menu.style.display = "none";
       }
@@ -62,7 +58,7 @@ function Navbar(props) {
           <ul>
             <li className={styles.menuItem}>
               {" "}
-              <Link to={{ pathname: `/user/${faker.finance.account(8)}` }}>
+              <Link to={{ pathname: `/user/${user.id}` }}>
                 <UserIcon /> My Account
               </Link>{" "}
             </li>

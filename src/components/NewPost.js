@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost } from "../actions/postActions";
 import { PostIcon } from "./Icons";
 
 import styles from "./styles/NewPost.module.css";
 
-function NewPost({ addPost }) {
+function NewPost({ user, addPost }) {
   const [postContent, setPostContent] = useState("");
 
-  const openMenu = ({ addPost }) => {
+  const openMenu = () => {
     const menu = document.getElementById("menu");
     const input = document.getElementById("postContent");
     menu.style.left = 0;
@@ -28,7 +29,15 @@ function NewPost({ addPost }) {
   };
 
   const createPost = () => {
-    addPost(postContent);
+    const post = {
+      userId: user.id,
+      username: user.username,
+      profileImage: user.profilePicture,
+      datePosted: Date.now(),
+      postContent,
+    };
+
+    addPost(post);
     setPostContent("");
     document.getElementById("closeBtn").click();
   };
@@ -72,8 +81,17 @@ function NewPost({ addPost }) {
   );
 }
 
+NewPost.propTypes = {
+  user: PropTypes.object.isRequired,
+  addPost: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  user: state.user.user,
+});
+
 const mapDispatchToProps = {
   addPost,
 };
 
-export default connect(null, mapDispatchToProps)(NewPost);
+export default connect(mapStateToProps, mapDispatchToProps)(NewPost);
