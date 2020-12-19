@@ -1,15 +1,20 @@
 import { firestore } from "../firebase";
-import { FETCH_POST, FETCH_COMMENTS } from "./types";
+import { FETCH_POST, FETCH_COMMENTS, SET_LOADING } from "./types";
 import faker from "faker";
 
 export const fetchPost = (postId) => (dispatch) => {
-  const post = {
-    id: postId,
-    userId: faker.finance.account(8),
-    username: faker.name.lastName(),
-    profileImage: faker.image.avatar(),
-    postContent: faker.lorem.sentence(),
-  };
+  // const post = {
+  //   id: postId,
+  //   userId: faker.finance.account(8),
+  //   username: faker.name.lastName(),
+  //   profileImage: faker.image.avatar(),
+  //   postContent: faker.lorem.sentence(),
+  // };
+
+  dispatch({
+    type: SET_LOADING,
+    payload: true,
+  });
 
   firestore
     .collection("posts")

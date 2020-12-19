@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { CommentIcon } from "./Icons";
+import { CommentIcon, Loading } from "./Icons";
 
 import NewPost from "./NewPost";
 import PostOptions from "./PostOptions";
@@ -10,7 +10,7 @@ import PostOptions from "./PostOptions";
 import styles from "./styles/Post.module.css";
 
 function Posts(props) {
-  const { user, data } = props;
+  const { user, data, loading } = props;
 
   // store id in state and pass it to props for postOptions
 
@@ -23,6 +23,10 @@ function Posts(props) {
       modal.style.display = "flex";
     }
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -78,10 +82,12 @@ function Posts(props) {
 
 Posts.propTypes = {
   user: PropTypes.object.isRequired || null,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   user: state.user.user,
+  loading: state.posts.loading,
 });
 
 export default connect(mapStateToProps, null)(Posts);

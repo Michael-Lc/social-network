@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import Main from "./Main";

@@ -8,8 +8,11 @@ import withNavbar from "../hoc/withNavbar";
 
 import styles from "./styles/Comment.module.css";
 import postStyles from "./styles/Post.module.css";
+import { Loading } from "./Icons";
 
-function Comment({ post, comments, fetchPost, fetchComments, match }) {
+function Comment(props) {
+  const { post, comments, fetchPost, fetchComments, match, loading } = props;
+
   useEffect(() => {
     const id = match.params.id;
     fetchPost(id);
@@ -17,6 +20,10 @@ function Comment({ post, comments, fetchPost, fetchComments, match }) {
   }, [match, fetchComments, fetchPost]);
 
   console.log(post, comments);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="container">
@@ -79,11 +86,13 @@ Comment.propTypes = {
   comments: PropTypes.array.isRequired,
   fetchPost: PropTypes.func.isRequired,
   fetchComments: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   post: state.comments.post,
   comments: state.comments.comments,
+  loading: state.comments.loading,
 });
 
 const mapDispatchToProps = {

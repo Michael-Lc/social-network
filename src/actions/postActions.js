@@ -1,5 +1,5 @@
 import { firestore } from "../firebase";
-import { FETCH_POSTS, NEW_POST, FETCH_USER_POSTS } from "./types";
+import { FETCH_POSTS, NEW_POST, FETCH_USER_POSTS, SET_LOADING } from "./types";
 import faker from "faker";
 
 export const newPostsBatch = () => {
@@ -34,6 +34,10 @@ export const fetchPosts = () => (dispatch) => {
   //   postContent: faker.lorem.sentence(),
   //   datePosted: faker.date.recent(),
   // }));
+  dispatch({
+    type: SET_LOADING,
+    payload: true,
+  });
 
   firestore
     .collection("posts")
