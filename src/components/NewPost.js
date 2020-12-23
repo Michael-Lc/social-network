@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addPost } from "../actions/postActions";
 import { PostIcon } from "./Icons";
 
-import styles from "./styles/NewPost.module.css";
+import styles from "./styles/PostForm.module.css";
 
 function NewPost({ user, addPost }) {
   const [postContent, setPostContent] = useState("");

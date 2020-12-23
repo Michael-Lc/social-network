@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -11,10 +11,12 @@ import styles from "./styles/Post.module.css";
 
 function Posts(props) {
   const { user, data, loading } = props;
+  const [postEdit, setPostEdit] = useState(null);
 
-  // store id in state and pass it to props for postOptions
+  const toggleOptions = (post) => {
+    // store id in state and pass it to props for postOptions
+    setPostEdit(post);
 
-  const toggleOptions = () => {
     const modal = document.getElementById("modal");
 
     if (modal.style.display === "flex") {
@@ -49,7 +51,7 @@ function Posts(props) {
               <button
                 className={styles.openOptions}
                 id="openOptions"
-                onClick={toggleOptions}
+                onClick={() => toggleOptions(post)}
               >
                 <i className="down"></i>
               </button>
@@ -72,7 +74,7 @@ function Posts(props) {
       )}
       {user && (
         <>
-          <PostOptions />
+          <PostOptions post={postEdit} setPostEdit={setPostEdit} />
           <NewPost />
         </>
       )}

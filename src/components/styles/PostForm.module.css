@@ -64,6 +64,11 @@
   color: oldlace;
   font-size: 35px;
   background-color: transparent;
+  transition: all 0.4s;
+}
+
+.closeBtn:hover {
+  color: orangered;
 }
 
 .submitBtn {

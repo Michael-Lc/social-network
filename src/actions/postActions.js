@@ -1,5 +1,12 @@
 import { firestore } from "../firebase";
-import { FETCH_POSTS, NEW_POST, FETCH_USER_POSTS, SET_LOADING } from "./types";
+import {
+  FETCH_POSTS,
+  NEW_POST,
+  FETCH_USER_POSTS,
+  SET_LOADING,
+  DELETE_POST,
+  EDIT_POST,
+} from "./types";
 import faker from "faker";
 
 export const newPostsBatch = () => {
@@ -60,12 +67,11 @@ export const fetchPosts = () => (dispatch) => {
 };
 
 export const addPost = (post) => (dispatch) => {
-  firestore
-    .collection("posts")
-    .add({
-      ...post,
-    })
-    .then((docRef) =>
+  const newPost = firestore.collection("posts").doc();
+  post.id = newPost.id;
+  newPost
+    .set(post)
+    .then(() =>
       dispatch({
         type: NEW_POST,
         payload: post,
@@ -105,4 +111,22 @@ export const fetchUserPosts = (userId) => (dispatch) => {
   //   type: FETCH_USER_POSTS,
   //   payload: userPosts,
   // });
+};
+
+export const editPost = (post) => (dispatch) => {
+  firestore
+    .collection("posts")
+    .doc(post.id)
+    .update(post)
+    .then(dispatch({ type: EDIT_POST, payload: post }))
+    .catch((err) => console.log(err));
+};
+
+export const deletePost = (post) => (dispatch) => {
+  firestore
+    .collection("posts")
+    .doc(post.id)
+    .delete()
+    .then(dispatch({ type: DELETE_POST, payload: post }))
+    .catch((err) => console.log(err));
 };

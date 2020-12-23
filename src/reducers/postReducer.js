@@ -1,4 +1,6 @@
 import {
+  DELETE_POST,
+  EDIT_POST,
   FETCH_POSTS,
   FETCH_USER_POSTS,
   NEW_POST,
@@ -24,6 +26,32 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         posts: [payload, ...state.posts],
         userPosts: [payload, ...state.posts],
+      };
+    case EDIT_POST:
+      return {
+        ...state,
+        posts: [
+          ...state.posts.map((post) => {
+            if (post.id === payload.id) {
+              return { ...payload };
+            } else return post;
+          }),
+        ],
+        userPosts: [
+          ...state.userPosts.map((post) => {
+            if (post.id === payload.id) {
+              return { ...payload };
+            } else return post;
+          }),
+        ],
+      };
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: [...state.posts.filter((post) => post.id !== payload.id)],
+        userPosts: [
+          ...state.userPosts.filter((post) => post.id !== payload.id),
+        ],
       };
 
     default:
