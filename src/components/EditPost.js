@@ -11,6 +11,9 @@ export const EditPost = (props) => {
   const [postContent, setPostContent] = useState(post.postContent);
 
   const handlePostEdit = () => {
+    if (post.postContent === postContent) {
+      return;
+    }
     const newPost = { ...post, postContent };
     editPost(newPost);
     setShowEdit(false);
@@ -27,7 +30,11 @@ export const EditPost = (props) => {
           >
             &times;
           </button>
-          <button className={styles.submitBtn} onClick={handlePostEdit}>
+          <button
+            className={styles.submitBtn}
+            onClick={handlePostEdit}
+            disabled={postContent.length === 0}
+          >
             Edit
           </button>
         </div>

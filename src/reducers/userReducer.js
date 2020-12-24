@@ -21,7 +21,7 @@ export default (state = initialState, { type, payload }) => {
     case SET_LOADING:
       return { ...state, loading: true };
     case FETCH_USER_DETAILS:
-      return { ...state, userDetails: { ...payload } };
+      return { ...state, userDetails: { ...payload }, loading: false };
     case LOGIN_SUCCESS:
       return {
         ...state,

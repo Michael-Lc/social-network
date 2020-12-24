@@ -8,17 +8,33 @@ import withNavbar from "../hoc/withNavbar";
 import Posts from "./Posts";
 
 import styles from "./styles/User.module.css";
+import { Loading } from "./Icons";
 
 function User(props) {
-  const { posts, userDetails, fetchUserPosts, fetchUserDetails, match } = props;
+  const {
+    loading,
+    posts,
+    userDetails,
+    fetchUserPosts,
+    fetchUserDetails,
+    match,
+  } = props;
 
   useEffect(() => {
     const id = match.params.id;
-    fetchUserPosts(id);
     fetchUserDetails(id);
+    fetchUserPosts(id);
   }, [fetchUserPosts, fetchUserDetails, match]);
 
   console.log(userDetails);
+
+  if (loading) {
+    return (
+      <div className="container">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="container">
@@ -38,6 +54,7 @@ function User(props) {
 
 User.propTypes = {
   posts: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
   userDetails: PropTypes.object.isRequired,
   fetchUserPosts: PropTypes.func.isRequired,
   fetchUserDetails: PropTypes.func.isRequired,
@@ -45,6 +62,7 @@ User.propTypes = {
 
 const mapStateToProps = (state) => ({
   posts: state.posts.userPosts,
+  loading: state.user.loading,
   userDetails: state.user.userDetails,
 });
 

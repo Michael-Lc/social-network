@@ -12,16 +12,15 @@ import faker from "faker";
 export const setUser = (userId) => (dispatch) => {
   firestore
     .collection("users")
-    .where("id", "==", userId)
+    .doc(userId)
     .get()
-    .then((data) => {
-      let userData = {};
-      data.forEach((user) => (userData = { ...user.data() }));
-
-      dispatch({
-        type: FETCH_USER,
-        payload: userData,
-      });
+    .then((doc) => {
+      if (doc.exists) {
+        dispatch({
+          type: FETCH_USER,
+          payload: doc.data(),
+        });
+      } else console.log("No such document");
     })
     .catch((err) => console.log(err));
 };
@@ -34,18 +33,22 @@ export const fetchUserDetails = (userId) => (dispatch) => {
   //   description: faker.random.words(10),
   // };
 
+  dispatch({
+    type: SET_LOADING,
+    payload: true,
+  });
+
   firestore
     .collection("users")
-    .where("id", "==", userId)
+    .doc(userId)
     .get()
-    .then((data) => {
-      let userData = {};
-      data.forEach((user) => (userData = { ...user.data() }));
-
-      dispatch({
-        type: FETCH_USER_DETAILS,
-        payload: userData,
-      });
+    .then((doc) => {
+      if (doc.exists) {
+        dispatch({
+          type: FETCH_USER_DETAILS,
+          payload: doc.data(),
+        });
+      } else console.log("No such document");
     })
     .catch((err) => console.log(err));
 
@@ -64,23 +67,21 @@ export const signup = (credentials) => (dispatch) => {
   auth
     .createUserWithEmailAndPassword(credentials.email, credentials.password)
     .then((user) => {
-      const collection = firestore.collection("users");
-      collection
-        .add({
+      const newUser = firestore.collection("users").doc(user.user.uid);
+      newUser
+        .set({
           id: user.user.uid,
           username: credentials.username,
           email: credentials.email,
           profilePicture: faker.image.avatar(),
           description: "",
         })
-        .then((docRef) => {
-          console.log(docRef);
-
+        .then(
           dispatch({
             type: LOGIN_SUCCESS,
             payload: user.user.uid,
-          });
-        })
+          })
+        )
         .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.code }));
     })
     .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.code }));

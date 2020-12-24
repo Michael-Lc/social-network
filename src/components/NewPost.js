@@ -58,7 +58,11 @@ function NewPost({ user, addPost }) {
             >
               &times;
             </button>
-            <button className={styles.submitBtn} onClick={createPost}>
+            <button
+              className={styles.submitBtn}
+              onClick={createPost}
+              disabled={postContent.length === 0}
+            >
               <PostIcon />
             </button>
           </div>

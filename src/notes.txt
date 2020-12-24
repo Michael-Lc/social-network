@@ -26,4 +26,7 @@
 
 # later switch from fetching all posts to fetching new posts
 
-# user component should not load until data is done fetching
+# user component should not load until data is done fetching // NOT DONE YOU IDIOT // done
+# only user's posts should be editable/deletable // done
+# user options for updating user details/deleting account
+# error states

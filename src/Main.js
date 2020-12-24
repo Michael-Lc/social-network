@@ -18,7 +18,9 @@ export const Main = (props) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       console.log(user);
-      setUser(user.uid);
+      if (user) {
+        setUser(user.uid);
+      }
       setLoading(false);
     });
 

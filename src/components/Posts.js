@@ -48,13 +48,18 @@ function Posts(props) {
                   {post.username}
                 </Link>
               </span>
-              <button
-                className={styles.openOptions}
-                id="openOptions"
-                onClick={() => toggleOptions(post)}
-              >
-                <i className="down"></i>
-              </button>
+              {user &&
+                (post.userId === user.id ? (
+                  <button
+                    className={styles.openOptions}
+                    id="openOptions"
+                    onClick={() => toggleOptions(post)}
+                  >
+                    <i className="down"></i>
+                  </button>
+                ) : (
+                  ""
+                ))}
             </div>
             <Link to={{ pathname: `/post/${post.id}`, state: post }}>
               <div className={styles.postContent}>
