@@ -10,6 +10,7 @@ import User from "./components/User";
 import Comment from "./components/Comment";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import EditProfile from "./components/EditProfile";
 
 export const Main = (props) => {
   const { setUser } = props;
@@ -33,6 +34,11 @@ export const Main = (props) => {
         <>
           <Route exact path="/" component={Home} />
           <Route exact path="/user/:id" component={User} />
+          <Route
+            exact
+            path="/user/:id/update-profile"
+            component={EditProfile}
+          />
           <Route exact path="/post/:id" component={Comment} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />

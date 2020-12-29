@@ -8,7 +8,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0 0 2px 2px lightgray;
 }
 
 .formTitle {
@@ -90,11 +89,58 @@
   text-decoration: underline;
 }
 
+.credentialsModal {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 95%;
+  box-shadow: 0 2px 4px 2px lightgray;
+  background-color: oldlace;
+  animation: zoomUp 0.3s;
+}
+
+@keyframes zoomUp {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.descriptionContainer {
+  width: 100%;
+}
+
+.modalDescription {
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  display: block;
+  padding: 0 4px;
+}
+
+.closeBtnContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.closeBtn {
+  color: #ff7f50;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: transparent;
+}
+
 @media only screen and (min-width: 600px) {
   .formContainer {
     max-width: 450px;
     padding-left: 20px;
     padding-right: 20px;
+    box-shadow: 0 0 2px 2px lightgray;
   }
 }
 

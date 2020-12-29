@@ -14,6 +14,8 @@ export const FETCH_USER = "FETCH_USER";
 export const FETCH_USER_DETAILS = "FETCH_USER_DETAILS";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
+export const UPDATE_ERROR = "UPDATE_ERROR";
 export const LOGOUT = "LOGOUT";
 
 // Comment Types

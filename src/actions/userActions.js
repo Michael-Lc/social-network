@@ -5,7 +5,10 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   LOGOUT,
+  UPDATE_PROFILE,
+  UPDATE_ERROR,
 } from "./types";
+import firebase from "firebase/app";
 import { auth, firestore } from "../firebase";
 import faker from "faker";
 
@@ -115,4 +118,58 @@ export const logout = () => (dispatch) => {
       type: LOGOUT,
     })
   );
+};
+
+export const updateProfile = (credentials) => (dispatch) => {
+  dispatch({
+    type: SET_LOADING,
+    payload: true,
+  });
+
+  const promises = [];
+  const user = auth.currentUser;
+  const cred = firebase.auth.EmailAuthProvider.credential(
+    user.email,
+    credentials.reauthPassword
+  );
+
+  const reAuth = user
+    .reauthenticateWithCredential(cred)
+    .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.message }));
+
+  if (credentials.email) {
+    promises.push(
+      reAuth.then((result) => result.user.updateEmail(credentials.email)),
+      firestore
+        .collection("users")
+        .doc(credentials.id)
+        .update({ email: credentials.email })
+    );
+  }
+
+  if (credentials.username) {
+    promises.push(
+      firestore
+        .collection("users")
+        .doc(credentials.id)
+        .update({ username: credentials.username })
+    );
+  }
+
+  if (credentials.password) {
+    promises.push(
+      reAuth.then((result) => result.user.updatePassword(credentials.password))
+    );
+  }
+
+  Promise.all(promises)
+    .then(() => {
+      delete credentials.password;
+
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: credentials,
+      });
+    })
+    .catch((err) => dispatch({ type: UPDATE_ERROR, payload: err.message }));
 };

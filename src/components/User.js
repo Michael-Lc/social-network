@@ -8,23 +8,25 @@ import withNavbar from "../hoc/withNavbar";
 import Posts from "./Posts";
 
 import styles from "./styles/User.module.css";
-import { Loading } from "./Icons";
+import { Edit, Loading } from "./Icons";
+import { Link } from "react-router-dom";
 
 function User(props) {
   const {
-    loading,
+    user,
     posts,
+    loading,
     userDetails,
     fetchUserPosts,
     fetchUserDetails,
     match,
   } = props;
+  const id = match.params.id;
 
   useEffect(() => {
-    const id = match.params.id;
     fetchUserDetails(id);
     fetchUserPosts(id);
-  }, [fetchUserPosts, fetchUserDetails, match]);
+  }, [id, fetchUserPosts, fetchUserDetails]);
 
   console.log(userDetails);
 
@@ -39,6 +41,17 @@ function User(props) {
   return (
     <div className="container">
       <div className={styles.details}>
+        {user &&
+          (user.id === id ? (
+            <Link
+              to={{ pathname: `/user/${user.id}/update-profile` }}
+              className={styles.editProfile}
+            >
+              <Edit />
+            </Link>
+          ) : (
+            ""
+          ))}
         <img
           src={userDetails.profilePicture}
           className={styles.profilePicture}
@@ -53,6 +66,7 @@ function User(props) {
 }
 
 User.propTypes = {
+  user: PropTypes.object,
   posts: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
   userDetails: PropTypes.object.isRequired,
@@ -61,6 +75,7 @@ User.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  user: state.user.user,
   posts: state.posts.userPosts,
   loading: state.user.loading,
   userDetails: state.user.userDetails,

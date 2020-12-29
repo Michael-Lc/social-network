@@ -28,5 +28,9 @@
 
 # user component should not load until data is done fetching // NOT DONE YOU IDIOT // done
 # only user's posts should be editable/deletable // done
-# user options for updating user details/deleting account
+# user options for updating user details/deleting account // half done
 # error states
+# create modal to take user credentials to reautheticate and update details // done
+# user reducer update // done
+# create error alert
+# private route and editprofile waiting bug
