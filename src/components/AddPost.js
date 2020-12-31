@@ -6,7 +6,7 @@ import { PostIcon } from "./Icons";
 
 import styles from "./styles/PostForm.module.css";
 
-function NewPost({ user, addPost }) {
+function AddPost({ user, addPost }) {
   const [postContent, setPostContent] = useState("");
 
   const openMenu = () => {
@@ -44,7 +44,7 @@ function NewPost({ user, addPost }) {
 
   return (
     <>
-      <button className={styles.newPostBtn} onClick={openMenu}>
+      <button className={styles.addPostBtn} onClick={openMenu}>
         <PostIcon />
       </button>
 
@@ -85,7 +85,7 @@ function NewPost({ user, addPost }) {
   );
 }
 
-NewPost.propTypes = {
+AddPost.propTypes = {
   user: PropTypes.object.isRequired,
   addPost: PropTypes.func.isRequired,
 };
@@ -98,4 +98,4 @@ const mapDispatchToProps = {
   addPost,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPost);
+export default connect(mapStateToProps, mapDispatchToProps)(AddPost);

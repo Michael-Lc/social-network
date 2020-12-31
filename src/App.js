@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Switch } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import Main from "./Main";
@@ -11,9 +11,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Switch>
-          <Main />
-        </Switch>
+        <Main />
       </Router>
     </Provider>
   );

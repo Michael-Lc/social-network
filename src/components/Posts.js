@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { CommentIcon, Loading } from "./Icons";
 
-import NewPost from "./NewPost";
+import AddPost from "./AddPost";
 import PostOptions from "./PostOptions";
 
 import styles from "./styles/Post.module.css";
@@ -80,7 +80,7 @@ function Posts(props) {
       {user && (
         <>
           <PostOptions post={postEdit} setPostEdit={setPostEdit} />
-          <NewPost />
+          <AddPost />
         </>
       )}
     </>

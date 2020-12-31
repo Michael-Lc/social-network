@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -9,9 +9,20 @@ import withNavbar from "../hoc/withNavbar";
 import styles from "./styles/Comment.module.css";
 import postStyles from "./styles/Post.module.css";
 import { Loading } from "./Icons";
+import AddComment from "./AddComment";
+import CommentOptions from "./CommentOptions";
 
 function Comment(props) {
-  const { post, comments, fetchPost, fetchComments, match, loading } = props;
+  const {
+    user,
+    post,
+    comments,
+    fetchPost,
+    fetchComments,
+    match,
+    loading,
+  } = props;
+  const [commentEdit, setCommentEdit] = useState(null);
 
   useEffect(() => {
     const id = match.params.id;
@@ -21,8 +32,25 @@ function Comment(props) {
 
   console.log(post, comments);
 
+  const toggleOptions = (comment) => {
+    // store id in state and pass it to props for postOptions
+    setCommentEdit(comment);
+
+    const modal = document.getElementById("modal");
+
+    if (modal.style.display === "flex") {
+      modal.style.display = "none";
+    } else {
+      modal.style.display = "flex";
+    }
+  };
+
   if (loading) {
-    return <Loading />;
+    return (
+      <div className="container">
+        <Loading />
+      </div>
+    );
   }
 
   return (
@@ -65,10 +93,20 @@ function Comment(props) {
                         {comment.username}
                       </span>
                     </Link>
+                    {user &&
+                      (comment.userId === user.id ? (
+                        <button
+                          className={postStyles.openOptions}
+                          id="openOptions"
+                          onClick={() => toggleOptions(comment)}
+                        >
+                          <i className="down"></i>
+                        </button>
+                      ) : null)}
                   </div>
 
                   <div className={postStyles.postContent}>
-                    <p>{comment.content}</p>
+                    <p>{comment.commentContent}</p>
                   </div>
                 </div>
               ))}
@@ -77,11 +115,21 @@ function Comment(props) {
       ) : (
         <div></div>
       )}
+      {user && (
+        <>
+          <CommentOptions
+            comment={commentEdit}
+            setCommentEdit={setCommentEdit}
+          />
+          <AddComment post={post} />
+        </>
+      )}
     </div>
   );
 }
 
 Comment.propTypes = {
+  user: PropTypes.object,
   post: PropTypes.object.isRequired,
   comments: PropTypes.array.isRequired,
   fetchPost: PropTypes.func.isRequired,
@@ -90,6 +138,7 @@ Comment.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  user: state.user.user,
   post: state.comments.post,
   comments: state.comments.comments,
   loading: state.comments.loading,

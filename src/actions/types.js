@@ -20,3 +20,6 @@ export const LOGOUT = "LOGOUT";
 
 // Comment Types
 export const FETCH_COMMENTS = "FETCH_COMMENTS";
+export const NEW_COMMENT = "NEW_COMMENT";
+export const EDIT_COMMENT = "EDIT_COMMENT";
+export const DELETE_COMMENT = "DELETE_COMMENT";

@@ -34,3 +34,5 @@
 # user reducer update // done
 # create error alert
 # private route and editprofile waiting bug
+# refs for menus
+# user account updates should reflect in posts and comments and stuff...
