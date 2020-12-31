@@ -11,6 +11,7 @@ import Comment from "./components/Comment";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import EditProfile from "./components/EditProfile";
+import ErrorAlert from "./components/ErrorAlert";
 
 export const Main = (props) => {
   const { setUser } = props;
@@ -42,6 +43,7 @@ export const Main = (props) => {
           <Route exact path="/post/:id" component={Comment} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <ErrorAlert />
         </>
       )}
     </Switch>

@@ -6,6 +6,7 @@ import {
   NEW_COMMENT,
   EDIT_COMMENT,
   DELETE_COMMENT,
+  SET_ERROR,
 } from "./types";
 import faker from "faker";
 
@@ -34,6 +35,7 @@ export const fetchPost = (postId) => (dispatch) => {
         console.log("No such document");
       }
     })
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 
   // dispatch({
@@ -84,6 +86,7 @@ export const addComment = (comment) => (dispatch) => {
         payload: comment,
       })
     )
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 };
 
@@ -93,6 +96,7 @@ export const editComment = (comment) => (dispatch) => {
     .doc(comment.id)
     .update(comment)
     .then(dispatch({ type: EDIT_COMMENT, payload: comment }))
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 };
 
@@ -102,5 +106,6 @@ export const deleteComment = (comment) => (dispatch) => {
     .doc(comment.id)
     .delete()
     .then(dispatch({ type: DELETE_COMMENT, payload: comment }))
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 };

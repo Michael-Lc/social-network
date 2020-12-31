@@ -3,10 +3,11 @@ import {
   SET_LOADING,
   FETCH_USER_DETAILS,
   LOGIN_SUCCESS,
-  LOGIN_ERROR,
+  // LOGIN_ERROR,
   LOGOUT,
   UPDATE_PROFILE,
-  UPDATE_ERROR,
+  // UPDATE_ERROR,
+  SET_ERROR,
 } from "./types";
 import firebase from "firebase/app";
 import { auth, firestore } from "../firebase";
@@ -25,6 +26,7 @@ export const setUser = (userId) => (dispatch) => {
         });
       } else console.log("No such document");
     })
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 };
 
@@ -53,6 +55,7 @@ export const fetchUserDetails = (userId) => (dispatch) => {
         });
       } else console.log("No such document");
     })
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 
   // dispatch({
@@ -85,9 +88,11 @@ export const signup = (credentials) => (dispatch) => {
             payload: user.user.uid,
           })
         )
-        .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.code }));
+        .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }));
+      // .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.code }));
     })
-    .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.code }));
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }));
+  // .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.code }));
 };
 
 export const login = (credentials) => (dispatch) => {
@@ -104,12 +109,13 @@ export const login = (credentials) => (dispatch) => {
         payload: user.uid,
       })
     )
-    .catch((err) =>
-      dispatch({
-        type: LOGIN_ERROR,
-        payload: err.code.replace("auth/", ""),
-      })
-    );
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }));
+  // .catch((err) =>
+  //   dispatch({
+  //     type: LOGIN_ERROR,
+  //     payload: err.code.replace("auth/", ""),
+  //   })
+  // );
 };
 
 export const logout = () => (dispatch) => {
@@ -135,7 +141,8 @@ export const updateProfile = (credentials) => (dispatch) => {
 
   const reAuth = user
     .reauthenticateWithCredential(cred)
-    .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.message }));
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }));
+  // .catch((err) => dispatch({ type: LOGIN_ERROR, payload: err.message }));
 
   if (credentials.email) {
     promises.push(
@@ -171,5 +178,6 @@ export const updateProfile = (credentials) => (dispatch) => {
         payload: credentials,
       });
     })
-    .catch((err) => dispatch({ type: UPDATE_ERROR, payload: err.message }));
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }));
+  // .catch((err) => dispatch({ type: UPDATE_ERROR, payload: err.message }));
 };

@@ -1,0 +1,58 @@
+.modal {
+  position: fixed;
+  width: 95%;
+  top: 0px;
+  left: 50%;
+  max-width: 400px;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  display: flex;
+  z-index: 10;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 2px lightgray;
+  animation: slideDown 0.4s;
+}
+
+@keyframes slideDown {
+  from {
+    top: -300px;
+  }
+
+  to {
+    top: 0px;
+  }
+}
+
+.modalHeader {
+  width: 100%;
+  color: oldlace;
+  padding: 5px;
+  background-color: orangered;
+}
+
+.modalBody {
+  width: 100%;
+  padding: 5px;
+  background-color: oldlace;
+}
+
+.modalBtnContainer {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  background-color: oldlace;
+}
+
+.modalClose {
+  padding: 7px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: oldlace;
+  border-radius: 50%;
+  background-color: orangered;
+}

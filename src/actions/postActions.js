@@ -6,6 +6,7 @@ import {
   SET_LOADING,
   DELETE_POST,
   EDIT_POST,
+  SET_ERROR,
 } from "./types";
 import faker from "faker";
 
@@ -58,6 +59,7 @@ export const fetchPosts = () => (dispatch) => {
         payload: docArray,
       });
     })
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 
   // dispatch({
@@ -77,6 +79,7 @@ export const addPost = (post) => (dispatch) => {
         payload: post,
       })
     )
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 };
 
@@ -119,6 +122,7 @@ export const editPost = (post) => (dispatch) => {
     .doc(post.id)
     .update(post)
     .then(dispatch({ type: EDIT_POST, payload: post }))
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 };
 
@@ -128,5 +132,6 @@ export const deletePost = (post) => (dispatch) => {
     .doc(post.id)
     .delete()
     .then(dispatch({ type: DELETE_POST, payload: post }))
+    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
 };
