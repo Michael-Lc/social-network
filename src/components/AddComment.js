@@ -32,9 +32,6 @@ function AddComment({ user, post, addComment }) {
     const comment = {
       userId: user.id,
       postId: post.id,
-      username: user.username,
-      profileImage: user.profilePicture,
-      datePosted: Date.now(),
       commentContent,
     };
 

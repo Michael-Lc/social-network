@@ -11,7 +11,7 @@
 .postUser {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
 }
 

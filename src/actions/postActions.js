@@ -1,4 +1,4 @@
-import { firestore } from "../firebase";
+import { firestore, timestamp } from "../firebase";
 import {
   FETCH_POSTS,
   NEW_POST,
@@ -49,10 +49,31 @@ export const fetchPosts = () => (dispatch) => {
 
   firestore
     .collection("posts")
+    .orderBy("datePosted", "desc")
     .get()
     .then((docs) => {
       let docArray = [];
       docs.forEach((doc) => docArray.push(doc.data()));
+      // docs.forEach((doc) => {
+      //   const docData = doc.data();
+      //   firestore
+      //     .collection("users")
+      //     .doc(docData.userId)
+      //     .get()
+      //     .then((userData) => {
+      //       docData.username = userData.data().username;
+      //       docData.profileImage = userData.data().profilePicture;
+      //       docArray.push(docData);
+
+      // if (docArray.length === docs.size) {
+      //   dispatch({
+      //     type: FETCH_POSTS,
+      //     payload: docArray,
+      //   });
+      // }
+      //     })
+      //     .catch((err) => console.log(err));
+      // });
 
       dispatch({
         type: FETCH_POSTS,
@@ -71,6 +92,7 @@ export const fetchPosts = () => (dispatch) => {
 export const addPost = (post) => (dispatch) => {
   const newPost = firestore.collection("posts").doc();
   post.id = newPost.id;
+  post.datePosted = timestamp.now();
   newPost
     .set(post)
     .then(() =>
@@ -99,15 +121,29 @@ export const fetchUserPosts = (userId) => (dispatch) => {
   firestore
     .collection("posts")
     .where("userId", "==", userId)
+    .orderBy("datePosted", "desc")
     .get()
     .then((docs) => {
       let docArray = [];
-      docs.forEach((doc) => docArray.push(doc.data()));
+      firestore
+        .collection("users")
+        .doc(userId)
+        .get()
+        .then((userData) => {
+          docs.forEach((doc) => {
+            const docData = doc.data();
+            docData.username = userData.data().username;
+            docData.profileImage = userData.data().profilePicture;
+            docArray.push(docData);
+          });
 
-      dispatch({
-        type: FETCH_USER_POSTS,
-        payload: docArray,
-      });
+          dispatch({
+            type: FETCH_USER_POSTS,
+            payload: docArray,
+          });
+        })
+        .catch((err) => console.log(err));
+      // docs.forEach((doc) => docArray.push(doc.data()));
     });
 
   // dispatch({

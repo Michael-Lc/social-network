@@ -76,7 +76,7 @@ function Comment(props) {
           </div>
 
           <div className={styles.commentContainer}>
-            <span>{comments.length} Comments</span>
+            <span>{comments.length} Comment(s)</span>
             {comments &&
               comments.map((comment) => (
                 <div className={styles.comment} key={comments.indexOf(comment)}>

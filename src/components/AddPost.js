@@ -31,9 +31,8 @@ function AddPost({ user, addPost }) {
   const createPost = () => {
     const post = {
       userId: user.id,
-      username: user.username,
-      profileImage: user.profilePicture,
-      datePosted: Date.now(),
+      // username: user.username,
+      // profileImage: user.profilePicture,
       postContent,
     };
 

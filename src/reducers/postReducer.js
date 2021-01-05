@@ -25,7 +25,7 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         posts: [payload, ...state.posts],
-        userPosts: [payload, ...state.posts],
+        userPosts: [payload, ...state.userPosts],
       };
     case EDIT_POST:
       return {

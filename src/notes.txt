@@ -32,7 +32,10 @@
 # error states
 # create modal to take user credentials to reautheticate and update details // done
 # user reducer update // done
-# create error alert
+# create error alert // done
 # private route and editprofile waiting bug
 # refs for menus
-# user account updates should reflect in posts and comments and stuff...
+# user account updates should reflect in posts and comments and stuff... // use id?
+# RESPONSIVENESS!!!
+# remove user details from addPost // done
+# use transactions in updates

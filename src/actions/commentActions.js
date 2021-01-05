@@ -1,4 +1,4 @@
-import { firestore } from "../firebase";
+import { firestore, timestamp } from "../firebase";
 import {
   FETCH_POST,
   FETCH_COMMENTS,
@@ -30,7 +30,21 @@ export const fetchPost = (postId) => (dispatch) => {
     .get()
     .then((doc) => {
       if (doc.exists) {
-        dispatch({ type: FETCH_POST, payload: doc.data() });
+        const docData = doc.data();
+        firestore
+          .collection("users")
+          .doc(docData.userId)
+          .get()
+          .then((userData) => {
+            docData.username = userData.data().username;
+            docData.profileImage = userData.data().profilePicture;
+
+            dispatch({
+              type: FETCH_POST,
+              payload: docData,
+            });
+          });
+        // dispatch({ type: FETCH_POST, payload: doc.data() });
       } else {
         console.log("No such document");
       }
@@ -61,12 +75,31 @@ export const fetchComments = (postId) => (dispatch) => {
     .then((docs) => {
       let docArray = [];
 
-      docs.forEach((doc) => docArray.push(doc.data()));
+      docs.forEach((doc) => {
+        const docData = doc.data();
+        firestore
+          .collection("users")
+          .doc(docData.userId)
+          .get()
+          .then((userData) => {
+            docData.username = userData.data().username;
+            docData.profileImage = userData.data().profilePicture;
+            docArray.push(docData);
 
-      dispatch({
-        type: FETCH_COMMENTS,
-        payload: docArray,
+            if (docArray.length === docs.size) {
+              dispatch({
+                type: FETCH_COMMENTS,
+                payload: docArray,
+              });
+            }
+          });
       });
+      // docs.forEach((doc) => docArray.push(doc.data()));
+
+      // dispatch({
+      //   type: FETCH_COMMENTS,
+      //   payload: docArray,
+      // });
     });
 
   // dispatch({
@@ -78,6 +111,7 @@ export const fetchComments = (postId) => (dispatch) => {
 export const addComment = (comment) => (dispatch) => {
   const newComment = firestore.collection("comments").doc();
   comment.id = newComment.id;
+  comment.datePosted = timestamp.now();
   newComment
     .set(comment)
     .then(() =>

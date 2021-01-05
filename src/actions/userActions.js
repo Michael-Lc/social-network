@@ -156,10 +156,12 @@ export const updateProfile = (credentials) => (dispatch) => {
 
   if (credentials.username) {
     promises.push(
-      firestore
-        .collection("users")
-        .doc(credentials.id)
-        .update({ username: credentials.username })
+      reAuth.then(
+        firestore
+          .collection("users")
+          .doc(credentials.id)
+          .update({ username: credentials.username })
+      )
     );
   }
 
