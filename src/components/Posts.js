@@ -88,7 +88,7 @@ function Posts(props) {
 }
 
 Posts.propTypes = {
-  user: PropTypes.object.isRequired || null,
+  user: PropTypes.object,
   loading: PropTypes.bool.isRequired,
 };
 

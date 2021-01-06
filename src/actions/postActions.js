@@ -14,16 +14,16 @@ export const newPostsBatch = () => {
   const batch = firestore.batch();
 
   const posts = Array.from(Array(20), () => ({
-    id: faker.finance.account(10),
     userId: faker.finance.account(8),
     username: faker.name.lastName(),
-    profileImage: faker.image.avatar(),
+    profileImage: faker.image.imageUrl(128, 128, "avatar", true),
     postContent: faker.lorem.sentence(),
     datePosted: faker.date.recent(),
   }));
 
   posts.forEach((post) => {
     const ref = firestore.collection("posts").doc();
+    post.id = ref.id;
     batch.set(ref, post);
   });
 

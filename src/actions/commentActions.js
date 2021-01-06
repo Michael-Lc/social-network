@@ -43,7 +43,8 @@ export const fetchPost = (postId) => (dispatch) => {
               type: FETCH_POST,
               payload: docData,
             });
-          });
+          })
+          .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }));
         // dispatch({ type: FETCH_POST, payload: doc.data() });
       } else {
         console.log("No such document");

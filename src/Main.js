@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import EditProfile from "./components/EditProfile";
 import ErrorAlert from "./components/ErrorAlert";
+import PrivateRoute from "./components/PrivateRoute";
 
 export const Main = (props) => {
   const { setUser } = props;
@@ -19,8 +20,8 @@ export const Main = (props) => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log(user);
       if (user) {
+        console.log(user);
         setUser(user.uid);
       }
       setLoading(false);
@@ -35,7 +36,7 @@ export const Main = (props) => {
         <>
           <Route exact path="/" component={Home} />
           <Route exact path="/user/:id" component={User} />
-          <Route
+          <PrivateRoute
             exact
             path="/user/:id/update-profile"
             component={EditProfile}

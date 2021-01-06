@@ -63,7 +63,7 @@ function Navbar(props) {
               </Link>{" "}
             </li>
             <li className={styles.menuItem}>
-              <Link onClick={logout}>
+              <Link onClick={logout} to="">
                 <LogoutIcon /> Logout
               </Link>
             </li>
@@ -90,7 +90,7 @@ function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
   logout: PropTypes.func.isRequired,
 };
 

@@ -79,7 +79,7 @@ export const signup = (credentials) => (dispatch) => {
           id: user.user.uid,
           username: credentials.username,
           email: credentials.email,
-          profilePicture: faker.image.avatar(),
+          profilePicture: faker.image.imageUrl(128, 128, "avatar", true),
           description: "",
         })
         .then(
