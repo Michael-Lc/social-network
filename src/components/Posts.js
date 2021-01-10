@@ -67,7 +67,10 @@ function Posts(props) {
               </div>
             </Link>
             <div className={styles.bottomIconsContainer}>
-              <Link to={{ pathname: `/post/${post.id}`, state: post }}>
+              <Link
+                to={{ pathname: `/post/${post.id}`, state: post }}
+                className={styles.commentBtn}
+              >
                 <CommentIcon />
                 <span>comment</span>
               </Link>

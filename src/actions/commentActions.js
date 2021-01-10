@@ -8,7 +8,7 @@ import {
   DELETE_COMMENT,
   SET_ERROR,
 } from "./types";
-import faker from "faker";
+// import faker from "faker";
 
 export const fetchPost = (postId) => (dispatch) => {
   // const post = {

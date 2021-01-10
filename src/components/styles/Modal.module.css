@@ -11,8 +11,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px 2px lightgray;
+  border-radius: 7px;
+  box-shadow: 0 2px 4px 1px lightgray;
   animation: slideDown 0.4s;
 }
 
@@ -28,14 +28,17 @@
 
 .modalHeader {
   width: 100%;
-  color: oldlace;
+  font-size: large;
+  color: red;
   padding: 5px;
-  background-color: orangered;
+  background-color: oldlace;
+  border-bottom: 2px solid orangered;
 }
 
 .modalBody {
   width: 100%;
   padding: 5px;
+  color: #444;
   background-color: oldlace;
 }
 
@@ -48,11 +51,14 @@
 }
 
 .modalClose {
-  padding: 7px;
+  width: 4.5rem;
   border: none;
   outline: none;
   cursor: pointer;
   color: oldlace;
-  border-radius: 50%;
+  font-size: small;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 5px;
   background-color: orangered;
 }

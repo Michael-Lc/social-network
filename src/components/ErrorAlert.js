@@ -15,7 +15,7 @@ export const ErrorAlert = (props) => {
 
   return (
     <div className={styles.modal}>
-      <div className={styles.modalHeader}>!Error</div>
+      <div className={styles.modalHeader}>Error!</div>
       <div className={styles.modalBody}>{errorMessage}</div>
       <div className={styles.modalBtnContainer}>
         <button className={styles.modalClose} onClick={setHideError}>

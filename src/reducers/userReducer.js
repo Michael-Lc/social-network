@@ -13,13 +13,14 @@ const initialState = {
   userDetails: {},
   user: null,
   authError: null,
+  userLoading: true,
   loading: false,
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case FETCH_USER:
-      return { ...state, user: { ...payload } };
+      return { ...state, user: { ...payload }, userLoading: false };
     case SET_LOADING:
       return { ...state, loading: true };
     case FETCH_USER_DETAILS:

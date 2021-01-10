@@ -10,7 +10,7 @@ export const PrivateRoute = (props) => {
     <Route
       {...rest}
       render={(props) =>
-        user ? <Component {...props} /> : <Redirect to="/" />
+        user ? <Component {...props} /> : <Redirect to="/login" />
       }
     />
   );

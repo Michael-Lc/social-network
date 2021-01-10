@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -8,7 +8,7 @@ import styles from "./styles/Form.module.css";
 import { Loading } from "./Icons";
 
 export const EditProfile = (props) => {
-  const { user, updateProfile, history, loading, error } = props;
+  const { user, updateProfile, userLoading, loading, error } = props;
   if (error) {
     alert(error);
   }
@@ -61,7 +61,7 @@ export const EditProfile = (props) => {
     updateProfile(newData);
   };
 
-  if (!user) {
+  if (userLoading) {
     return (
       <div className="container">
         <Loading /> Fetching User Details
@@ -177,6 +177,7 @@ EditProfile.propTypes = {
 const mapStateToProps = (state) => ({
   user: state.user.user,
   error: state.user.authError,
+  userLoading: state.user.userLoading,
   loading: state.user.loading,
 });
 

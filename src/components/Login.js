@@ -7,8 +7,7 @@ import styles from "./styles/Form.module.css";
 import { Link } from "react-router-dom";
 
 export const Login = (props) => {
-  const { user, login, history, loading, error } = props;
-  console.log(error);
+  const { user, login, history, loading } = props;
 
   const initialState = {
     email: "",

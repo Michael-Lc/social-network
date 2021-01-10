@@ -15,8 +15,7 @@ import ErrorAlert from "./components/ErrorAlert";
 import PrivateRoute from "./components/PrivateRoute";
 
 export const Main = (props) => {
-  const { setUser } = props;
-  const [loading, setLoading] = useState(true);
+  const { setUser, userLoading } = props;
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -24,7 +23,6 @@ export const Main = (props) => {
         console.log(user);
         setUser(user.uid);
       }
-      setLoading(false);
     });
 
     return unsubscribe;
@@ -32,16 +30,16 @@ export const Main = (props) => {
 
   return (
     <Switch>
-      {!loading && (
+      {!userLoading && (
         <>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/user/:id" component={User} />
+          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/user/:id" component={User} />
           <PrivateRoute
             exact
             path="/user/:id/update-profile"
             component={EditProfile}
           />
-          <Route exact path="/post/:id" component={Comment} />
+          <PrivateRoute exact path="/post/:id" component={Comment} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <ErrorAlert />
@@ -55,7 +53,9 @@ Main.propTypes = {
   setUser: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  userLoading: state.user.userLoading,
+});
 
 const mapDispatchToProps = {
   setUser,

@@ -7,8 +7,7 @@ import { signup } from "../actions/userActions";
 import styles from "./styles/Form.module.css";
 
 export const Signup = (props) => {
-  const { user, signup, history, loading, error } = props;
-  console.log(error);
+  const { user, signup, history, loading } = props;
 
   const initialState = {
     username: "",

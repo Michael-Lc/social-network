@@ -8,6 +8,7 @@ import {
   UPDATE_PROFILE,
   // UPDATE_ERROR,
   SET_ERROR,
+  LOGIN_ERROR,
 } from "./types";
 import firebase from "firebase/app";
 import { auth, firestore } from "../firebase";
@@ -53,7 +54,7 @@ export const fetchUserDetails = (userId) => (dispatch) => {
           type: FETCH_USER_DETAILS,
           payload: doc.data(),
         });
-      } else console.log("No such document");
+      } else dispatch({ type: SET_ERROR, payload: "Unable to find user" });
     })
     .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));
@@ -109,7 +110,10 @@ export const login = (credentials) => (dispatch) => {
         payload: user.uid,
       })
     )
-    .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }));
+    .catch((err) => {
+      dispatch({ type: SET_ERROR, payload: err.message });
+      dispatch({ type: LOGIN_ERROR, payload: err.message });
+    });
   // .catch((err) =>
   //   dispatch({
   //     type: LOGIN_ERROR,

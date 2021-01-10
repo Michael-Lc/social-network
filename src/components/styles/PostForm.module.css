@@ -2,13 +2,12 @@
 .addCommentBtn {
   position: fixed;
   bottom: 40px;
-  right: 20px;
+  right: 10px;
   width: 60px;
   padding: 10px;
   outline: none;
   color: white;
   cursor: pointer;
-  outline: none;
   border-radius: 50%;
   border: 2px solid white;
   background-color: rgb(255, 115, 64);
@@ -21,8 +20,9 @@
 
 .addPostBtn:hover,
 .addCommentBtn:hover {
-  opacity: 0.8;
-  filter: opacity(80);
+  transition: 0.4s;
+  color: lightseagreen;
+  border-color: lightseagreen;
 }
 
 .createPostContainer {

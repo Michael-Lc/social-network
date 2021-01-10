@@ -90,6 +90,13 @@ export const fetchPosts = () => (dispatch) => {
 };
 
 export const addPost = (post) => (dispatch) => {
+  if (post.postContent[0] === " ") {
+    return dispatch({
+      type: SET_ERROR,
+      payload: "Empty post or post beggining with space",
+    });
+  }
+
   const newPost = firestore.collection("posts").doc();
   post.id = newPost.id;
   post.datePosted = timestamp.now();
