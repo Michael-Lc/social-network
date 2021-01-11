@@ -33,7 +33,7 @@
 # create modal to take user credentials to reautheticate and update details // done
 # user reducer update // done
 # create error alert // done
-# private route and editprofile waiting bug
+# private route and editprofile waiting bug // done
 # refs for menus
 # user account updates should reflect in posts and comments and stuff... // use id?
 # RESPONSIVENESS!!!

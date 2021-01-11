@@ -9,7 +9,7 @@ import PostOptions from "./PostOptions";
 
 import styles from "./styles/Post.module.css";
 
-function Posts(props) {
+function PostList(props) {
   const { user, data, loading } = props;
   const [postEdit, setPostEdit] = useState(null);
 
@@ -34,7 +34,7 @@ function Posts(props) {
     <>
       {data.length >= 1 ? (
         data.map((post) => (
-          <div key={props.data.indexOf(post)} className={styles.post}>
+          <div key={post.id} className={styles.post}>
             <div className={styles.postUser}>
               <Link to={{ pathname: `/user/${post.userId}` }}>
                 <img
@@ -90,7 +90,7 @@ function Posts(props) {
   );
 }
 
-Posts.propTypes = {
+PostList.propTypes = {
   user: PropTypes.object,
   loading: PropTypes.bool.isRequired,
 };
@@ -100,4 +100,4 @@ const mapStateToProps = (state) => ({
   loading: state.posts.loading,
 });
 
-export default connect(mapStateToProps, null)(Posts);
+export default connect(mapStateToProps, null)(PostList);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { auth } from "./firebase";
@@ -51,6 +51,7 @@ export const Main = (props) => {
 
 Main.propTypes = {
   setUser: PropTypes.func.isRequired,
+  userLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

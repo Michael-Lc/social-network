@@ -5,7 +5,7 @@ import { fetchUserPosts } from "../actions/postActions";
 import { fetchUserDetails } from "../actions/userActions";
 
 import withNavbar from "../hoc/withNavbar";
-import Posts from "./Posts";
+import PostList from "./PostList";
 
 import styles from "./styles/User.module.css";
 import { Edit, Loading } from "./Icons";
@@ -60,7 +60,7 @@ function User(props) {
         <div className={styles.userName}>{userDetails.username}</div>
         <div className={styles.description}>{userDetails.description}</div>
       </div>
-      <Posts data={posts} />
+      <PostList data={posts} />
     </div>
   );
 }

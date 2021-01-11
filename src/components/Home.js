@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions/postActions";
 
-import Posts from "./Posts";
+import PostList from "./PostList";
 
 import withNavbar from "../hoc/withNavbar";
 
@@ -18,7 +18,7 @@ function Home({ posts, fetchPosts }) {
 
   return (
     <div className="container">
-      <Posts data={posts} />
+      <PostList data={posts} />
     </div>
   );
 }

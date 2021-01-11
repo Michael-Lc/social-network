@@ -79,7 +79,7 @@ function Comment(props) {
             <span>{comments.length} Comment(s)</span>
             {comments &&
               comments.map((comment) => (
-                <div className={styles.comment} key={comments.indexOf(comment)}>
+                <div className={styles.comment} key={comment.id}>
                   <div className={postStyles.postUser}>
                     <Link to={{ pathname: `/user/${comment.userId}` }}>
                       <img

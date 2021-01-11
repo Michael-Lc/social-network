@@ -172,6 +172,7 @@ export const EditProfile = (props) => {
 
 EditProfile.propTypes = {
   user: PropTypes.object.isRequired,
+  userLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
