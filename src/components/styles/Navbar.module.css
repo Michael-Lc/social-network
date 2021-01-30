@@ -5,9 +5,18 @@
   position: sticky;
   top: 0;
   z-index: 2;
-  justify-content: space-between;
   align-items: center;
-  background-color: rgb(255, 115, 64);
+  justify-content: space-between;
+  background-color: #304661;
+  box-shadow: 0 0 1px 1px whitesmoke;
+}
+
+.logo {
+  padding: 0.3rem;
+}
+
+.logo:hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .logo > a {
@@ -57,7 +66,7 @@
   color: white;
   list-style: none;
   border-radius: 5px;
-  background-color: rgb(238, 125, 105);
+  background-color: #304661;
 }
 
 .menuItem {

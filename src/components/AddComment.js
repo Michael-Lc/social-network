@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addComment } from "../actions/commentActions";
-import { PostIcon } from "./Icons";
+import { CommentIcon, PostIcon } from "./Icons";
 
 import styles from "./styles/PostForm.module.css";
 
@@ -43,7 +43,13 @@ function AddComment({ user, post, addComment }) {
   return (
     <>
       <button className={styles.addCommentBtn} onClick={openMenu}>
-        {/* <CommentIcon /> */} +
+        {window.matchMedia("(min-width: 769px)") ? (
+          <span>
+            <CommentIcon /> Comment
+          </span>
+        ) : (
+          "+"
+        )}
       </button>
 
       <div className={styles.createPostContainer} id="menu">

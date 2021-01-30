@@ -12,8 +12,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 7px;
-  box-shadow: 0 2px 4px 1px lightgray;
   animation: slideDown 0.4s;
+  background: #243447;
+  box-shadow: 0 0 2px 1px orangered;
 }
 
 @keyframes slideDown {
@@ -31,15 +32,15 @@
   font-size: large;
   color: red;
   padding: 5px;
-  background-color: oldlace;
+  background-color: transparent;
   border-bottom: 2px solid orangered;
 }
 
 .modalBody {
   width: 100%;
   padding: 5px;
-  color: #444;
-  background-color: oldlace;
+  color: white;
+  background-color: transparent;
 }
 
 .modalBtnContainer {
@@ -47,7 +48,7 @@
   padding: 5px;
   display: flex;
   justify-content: flex-end;
-  background-color: oldlace;
+  background-color: transparent;
 }
 
 .modalClose {

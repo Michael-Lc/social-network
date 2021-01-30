@@ -15,6 +15,10 @@ import { auth, firestore } from "../firebase";
 import faker from "faker";
 
 export const setUser = (userId) => (dispatch) => {
+  if (!userId) {
+    return dispatch({ type: FETCH_USER, payload: null });
+  }
+
   firestore
     .collection("users")
     .doc(userId)

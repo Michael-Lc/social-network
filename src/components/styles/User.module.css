@@ -1,5 +1,6 @@
 .details {
   position: relative;
+  color: white;
   width: 100%;
   padding: 10px;
   margin-bottom: 5px;
@@ -11,11 +12,11 @@
 }
 
 .profilePicture {
-  width: 30%;
+  width: 90px;
   height: 90px;
   margin: 10px;
   font-size: small;
-  border: 1px solid lightcoral;
+  border: 1px solid white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -31,12 +32,11 @@
 
 .editProfile {
   position: absolute;
-  top: 0;
+  top: 2px;
   right: 0;
   margin: 3px;
   margin-right: 10px;
-  color: coral;
-  /* font-size: small; */
+  color: white;
   text-align: center;
   border-radius: 15px;
 }
@@ -52,7 +52,11 @@
 }
 
 @media only screen and (min-width: 769px) {
+  .details {
+    width: 70%;
+  }
+
   .profilePicture {
-    width: 8%;
+    width: 10%;
   }
 }

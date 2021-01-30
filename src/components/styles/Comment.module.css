@@ -1,8 +1,10 @@
 .post {
   width: 100%;
+  color: white;
   margin-bottom: 4px;
   padding: 5px;
-  border: 1px solid lightseagreen;
+  border: 1px solid gray;
+  background-color: #243447;
 }
 
 .commentContainer {
@@ -22,17 +24,25 @@
   width: 100%;
   font-size: 14px;
   text-align: left;
-  color: lightcoral;
+  color: white;
 }
 
 .comment {
+  color: white;
   width: 100%;
-  margin: 1px 2px;
+  margin: 3px 2px;
   padding: 3px;
   display: flex;
   flex-direction: column;
-  /* border-radius: 3px; */
-  border: 1px solid seagreen;
+  border: 1px solid gray;
+  background-color: #243447;
+}
+
+@media only screen and (min-width: 600px) {
+  .post,
+  .commentContainer {
+    width: 90%;
+  }
 }
 
 @media only screen and (min-width: 769px) {

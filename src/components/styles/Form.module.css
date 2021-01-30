@@ -13,7 +13,7 @@
 .formTitle {
   padding: 5px;
   font-size: 40px;
-  color: #ff7f50;
+  color: white;
 }
 
 .form {
@@ -36,7 +36,7 @@
 
 .formGroup label {
   font-size: 17px;
-  color: #555;
+  color: white;
   font-weight: bold;
 }
 
@@ -44,17 +44,22 @@
   width: 100%;
   padding: 8px;
   margin: 5px 0;
-  color: #555;
+  color: white;
   outline: none;
-  font-size: 17px;
+  font-size: 16px;
   border-radius: 6px;
+  background: transparent;
   border: 1px solid lightgray;
   transition: box-shadow 0.4s;
 }
 
 .formControl:focus {
-  border-color: #ff7f50;
-  box-shadow: 0 0 1px 1px rgb(248, 158, 125);
+  border-color: dodgerblue;
+  box-shadow: 0 0 1px 1px dodgerblue;
+}
+
+.formControl::placeholder {
+  color: #aaa;
 }
 
 .submitBtn {
@@ -66,7 +71,7 @@
   cursor: pointer;
   font-size: 17px;
   padding: 10px 20px;
-  background-color: #ff7f50;
+  background-color: royalblue;
 }
 
 .submitBtn:hover {
@@ -75,13 +80,14 @@
 
 .formGroup span {
   width: 100%;
+  color: white;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
 .formGroup a {
-  color: coral;
+  color: dodgerblue;
   margin-left: 5px;
 }
 

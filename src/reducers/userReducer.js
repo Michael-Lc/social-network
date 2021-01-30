@@ -20,7 +20,11 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case FETCH_USER:
-      return { ...state, user: { ...payload }, userLoading: false };
+      return {
+        ...state,
+        user: payload === null ? null : { ...payload },
+        userLoading: false,
+      };
     case SET_LOADING:
       return { ...state, loading: true };
     case FETCH_USER_DETAILS:

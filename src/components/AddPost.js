@@ -44,7 +44,8 @@ function AddPost({ user, addPost }) {
   return (
     <>
       <button className={styles.addPostBtn} onClick={openMenu}>
-        <PostIcon />
+        <PostIcon />{" "}
+        {window.matchMedia("(min-width: 769px)") && <span>New Post</span>}
       </button>
 
       <div className={styles.createPostContainer} id="menu">

@@ -8,7 +8,7 @@ import withNavbar from "../hoc/withNavbar";
 
 import styles from "./styles/Comment.module.css";
 import postStyles from "./styles/Post.module.css";
-import { Loading } from "./Icons";
+import { Loading, PostOptionsIcon } from "./Icons";
 import AddComment from "./AddComment";
 import CommentOptions from "./CommentOptions";
 
@@ -100,7 +100,7 @@ function Comment(props) {
                           id="openOptions"
                           onClick={() => toggleOptions(comment)}
                         >
-                          <i className="down"></i>
+                          <PostOptionsIcon />
                         </button>
                       ) : null)}
                   </div>

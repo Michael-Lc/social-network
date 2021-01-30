@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { CommentIcon, Loading } from "./Icons";
+import { CommentIcon, Loading, PostOptionsIcon } from "./Icons";
 
 import AddPost from "./AddPost";
 import PostOptions from "./PostOptions";
@@ -55,7 +55,7 @@ function PostList(props) {
                     id="openOptions"
                     onClick={() => toggleOptions(post)}
                   >
-                    <i className="down"></i>
+                    <PostOptionsIcon />
                   </button>
                 ) : (
                   ""
@@ -72,7 +72,6 @@ function PostList(props) {
                 className={styles.commentBtn}
               >
                 <CommentIcon />
-                <span>comment</span>
               </Link>
             </div>
           </div>

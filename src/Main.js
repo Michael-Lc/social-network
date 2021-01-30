@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { auth } from "./firebase";
-import { Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { setUser } from "./actions/userActions";
 
 import Home from "./components/Home";
@@ -13,6 +13,7 @@ import Signup from "./components/Signup";
 import EditProfile from "./components/EditProfile";
 import ErrorAlert from "./components/ErrorAlert";
 import PrivateRoute from "./components/PrivateRoute";
+import { Loading } from "./components/Icons";
 
 export const Main = (props) => {
   const { setUser, userLoading } = props;
@@ -22,6 +23,8 @@ export const Main = (props) => {
       if (user) {
         console.log(user);
         setUser(user.uid);
+      } else {
+        setUser(null);
       }
     });
 
@@ -29,9 +32,9 @@ export const Main = (props) => {
   }, [setUser]);
 
   return (
-    <Switch>
-      {!userLoading && (
-        <>
+    <Router>
+      {!userLoading ? (
+        <Switch>
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/user/:id" component={User} />
           <PrivateRoute
@@ -42,10 +45,14 @@ export const Main = (props) => {
           <PrivateRoute exact path="/post/:id" component={Comment} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <ErrorAlert />
-        </>
+        </Switch>
+      ) : (
+        <div className="container">
+          <Loading />
+        </div>
       )}
-    </Switch>
+      <ErrorAlert />
+    </Router>
   );
 };
 

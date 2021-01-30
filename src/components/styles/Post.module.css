@@ -1,14 +1,16 @@
 .post {
-  width: 98%;
-  margin: 3px 0;
+  width: 100%;
   padding: 5px;
-  border-radius: 5px;
+  color: white;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  /* border: 1px solid lightseagreen; */
-  background-color: rgb(247, 235, 220);
-  box-shadow: 1px 1px 1px lightgreen, -1px -1px 1px lightgreen;
+  border-bottom: 1px solid slategray;
+  background-color: #243447;
+}
+
+.post:hover {
+  background-color: #213855;
 }
 
 .postUser {
@@ -23,14 +25,14 @@
   height: 40px;
   transition: 0.4s;
   border-radius: 50%;
-  border: 1px solid transparent;
+  border: 1px solid #243447;
 }
 .profileImage:hover {
-  border: 1px solid lightcoral;
+  filter: brightness(80%);
 }
 
 .username {
-  color: lightcoral;
+  color: white;
   display: inline-block;
   padding: 5px;
   transition: 0.4s;
@@ -50,9 +52,8 @@
   background-color: transparent;
 }
 
-.openOptions:focus {
-  transition: transform 1s;
-  transform: rotateX(180deg);
+.openOptions:hover {
+  background: #4f637c;
 }
 
 .postContent {
@@ -62,7 +63,8 @@
 
 .postContent > p {
   margin: 0;
-  padding: 5px;
+  padding: 1rem;
+  font-size: 0.95rem;
 }
 
 .bottomIconsContainer {
@@ -73,21 +75,21 @@
 
 .commentBtn {
   color: oldlace;
-  /* color: coral; */
   font-size: 13px;
   padding: 3px 5px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
-  border-radius: 15px;
+  border-radius: 50%;
   justify-content: center;
   align-items: center;
-  border: 1px solid coral;
-  background-color: coral;
+  background-color: transparent;
 }
 
 .commentBtn:hover {
   transition: 0.4s;
-  color: coral;
-  background-color: transparent;
+  color: white;
+  background: #4f637c;
 }
 
 .commentBtn > span {
@@ -100,6 +102,7 @@
 @media only screen and (min-width: 600px) {
   .post {
     width: 90%;
+    border: 1px solid slategray;
   }
 }
 

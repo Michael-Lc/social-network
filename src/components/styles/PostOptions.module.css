@@ -8,8 +8,8 @@
   z-index: 3;
   cursor: pointer;
   justify-content: center;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(112, 128, 144, 0.4);
+  /* background-color: rgba(0, 0, 0, 0.4); */
   animation: fade 0.4s;
 }
 
@@ -29,11 +29,13 @@
   position: fixed;
   width: 100%;
   bottom: 0;
-  padding: 5px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightgray;
+  background-color: #243447;
   animation: slideUp 0.4s;
 }
 
@@ -59,11 +61,11 @@
   font-size: 16px;
   cursor: pointer;
   color: oldlace;
+  border-radius: 2rem;
   font-family: inherit;
-  border: solid snow;
+  border: 1px solid snow;
   justify-content: center;
-  border-width: 0 0 1px 0;
-  background-color: rgba(255, 127, 80, 0.9);
+  background: #243447;
 }
 
 .modalBtn > span {
