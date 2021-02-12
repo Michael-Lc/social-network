@@ -26,6 +26,15 @@
   border-color: lightseagreen;
 }
 
+.addPostLabel,
+.addCommentLabel {
+  display: none;
+}
+
+.addCommentMobileIcon {
+  display: block;
+}
+
 .createPostContainer {
   display: none;
   position: fixed;
@@ -182,6 +191,15 @@
   .addCommentBtn:hover {
     color: white;
     background-color: #213d5f;
+  }
+
+  .addPostLabel,
+  .addCommentLabel {
+    display: block;
+  }
+
+  .addCommentMobileIcon {
+    display: none !important;
   }
 
   .createPostContainer {

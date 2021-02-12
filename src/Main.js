@@ -21,7 +21,7 @@ export const Main = (props) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log(user);
+        // console.log(user);
         setUser(user.uid);
       } else {
         setUser(null);

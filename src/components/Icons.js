@@ -255,7 +255,7 @@ export function Loading() {
 export function Edit() {
   return (
     <svg
-      width="20"
+      width="21"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

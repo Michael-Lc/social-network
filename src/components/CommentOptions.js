@@ -10,7 +10,7 @@ import { deleteComment } from "../actions/commentActions";
 export const CommentOptions = (props) => {
   const { comment, deleteComment } = props;
   const [showEdit, setShowEdit] = useState(false);
-  console.log(comment);
+  // console.log(comment);
 
   const handleDelete = () => {
     document.getElementById("modal").style.display = "none";

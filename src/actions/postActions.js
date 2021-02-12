@@ -8,40 +8,14 @@ import {
   EDIT_POST,
   SET_ERROR,
 } from "./types";
-import faker from "faker";
 
-export const newPostsBatch = () => {
+export const newBatch = () => {
   const batch = firestore.batch();
-
-  const posts = Array.from(Array(20), () => ({
-    userId: faker.finance.account(8),
-    username: faker.name.lastName(),
-    profileImage: faker.image.imageUrl(128, 128, "avatar", true),
-    postContent: faker.lorem.sentence(),
-    datePosted: faker.date.recent(),
-  }));
-
-  posts.forEach((post) => {
-    const ref = firestore.collection("posts").doc();
-    post.id = ref.id;
-    batch.set(ref, post);
-  });
-
-  batch
-    .commit()
-    .then((a) => console.log(a))
-    .catch((err) => console.log(err));
+  batch.set("ref", {});
+  batch.commit();
 };
 
 export const fetchPosts = () => (dispatch) => {
-  // const posts = Array.from(Array(20), () => ({
-  //   id: faker.finance.account(10),
-  //   userId: faker.finance.account(8),
-  //   username: faker.name.lastName(),
-  //   profileImage: faker.image.avatar(),
-  //   postContent: faker.lorem.sentence(),
-  //   datePosted: faker.date.recent(),
-  // }));
   dispatch({
     type: SET_LOADING,
     payload: true,
@@ -50,35 +24,36 @@ export const fetchPosts = () => (dispatch) => {
   firestore
     .collection("posts")
     .orderBy("datePosted", "desc")
+    .limit(12)
     .get()
     .then((docs) => {
       let docArray = [];
-      docs.forEach((doc) => docArray.push(doc.data()));
-      // docs.forEach((doc) => {
-      //   const docData = doc.data();
-      //   firestore
-      //     .collection("users")
-      //     .doc(docData.userId)
-      //     .get()
-      //     .then((userData) => {
-      //       docData.username = userData.data().username;
-      //       docData.profileImage = userData.data().profilePicture;
-      //       docArray.push(docData);
+      // docs.forEach((doc) => docArray.push(doc.data()));
+      docs.forEach((doc) => {
+        const docData = doc.data();
+        firestore
+          .collection("users")
+          .doc(docData.userId)
+          .get()
+          .then((userData) => {
+            docData.username = userData.data().username;
+            docData.profileImage = userData.data().profilePicture;
+            docArray.push(docData);
 
-      // if (docArray.length === docs.size) {
-      //   dispatch({
-      //     type: FETCH_POSTS,
-      //     payload: docArray,
-      //   });
-      // }
-      //     })
-      //     .catch((err) => console.log(err));
-      // });
-
-      dispatch({
-        type: FETCH_POSTS,
-        payload: docArray,
+            if (docArray.length === docs.size) {
+              dispatch({
+                type: FETCH_POSTS,
+                payload: docArray,
+              });
+            }
+          })
+          .catch((err) => console.log(err));
       });
+
+      // dispatch({
+      //   type: FETCH_POSTS,
+      //   payload: docArray,
+      // });
     })
     .catch((err) => dispatch({ type: SET_ERROR, payload: err.message }))
     .catch((err) => console.log(err));

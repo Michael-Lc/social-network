@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-// import { newPostsBatch } from "../actions/postActions";
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions/postActions";
 
@@ -11,10 +10,9 @@ import withNavbar from "../hoc/withNavbar";
 function Home({ posts, fetchPosts }) {
   useEffect(() => {
     fetchPosts();
-    // newPostsBatch();
   }, [fetchPosts]);
 
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <div className="container">

@@ -28,7 +28,7 @@ function User(props) {
     fetchUserPosts(id);
   }, [id, fetchUserPosts, fetchUserDetails]);
 
-  console.log(userDetails, posts);
+  // console.log(userDetails, posts);
 
   if (loading) {
     return (

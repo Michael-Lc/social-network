@@ -43,13 +43,10 @@ function AddComment({ user, post, addComment }) {
   return (
     <>
       <button className={styles.addCommentBtn} onClick={openMenu}>
-        {window.matchMedia("(min-width: 769px)") ? (
-          <span>
-            <CommentIcon /> Comment
-          </span>
-        ) : (
-          "+"
-        )}
+        <span className={styles.addCommentLabel}>
+          <CommentIcon /> Comment
+        </span>
+        <span className={styles.addCommentMobileIcon}>+</span>
       </button>
 
       <div className={styles.createPostContainer} id="menu">

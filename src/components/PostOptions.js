@@ -10,7 +10,7 @@ import { deletePost } from "../actions/postActions";
 export const PostOptions = (props) => {
   const { post, deletePost } = props;
   const [showEdit, setShowEdit] = useState(false);
-  console.log(post);
+  // console.log(post);
 
   const handleDelete = () => {
     document.getElementById("modal").style.display = "none";

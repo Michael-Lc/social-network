@@ -30,7 +30,7 @@ function Comment(props) {
     fetchComments(id);
   }, [match, fetchComments, fetchPost]);
 
-  console.log(post, comments);
+  // console.log(post, comments);
 
   const toggleOptions = (comment) => {
     // store id in state and pass it to props for postOptions

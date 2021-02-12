@@ -77,7 +77,7 @@ function PostList(props) {
           </div>
         ))
       ) : (
-        <div>No Posts</div>
+        <div style={{ color: "oldlace" }}>No Posts</div>
       )}
       {user && (
         <>

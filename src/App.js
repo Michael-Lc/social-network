@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import Main from "./Main";
 
 import store from "./store";
-console.log(store.getState());
+// console.log(store.getState());
 
 function App() {
   return (
