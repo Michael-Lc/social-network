@@ -36,7 +36,7 @@
 
 .formGroup label {
   font-size: 17px;
-  color: white;
+  color: dodgerblue;
   font-weight: bold;
 }
 
@@ -76,6 +76,10 @@
 
 .submitBtn:hover {
   opacity: 0.9;
+}
+
+.submitBtn:disabled {
+  background-color: cornflowerblue;
 }
 
 .formGroup span {
@@ -153,5 +157,9 @@
 @media only screen and (min-width: 769px) {
   .form {
     max-width: 400px;
+  }
+
+  .formControl {
+    padding: 10px;
   }
 }

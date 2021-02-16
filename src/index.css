@@ -16,7 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #243447;
+  background-color: #243a55;
 }
 
 code {
@@ -33,7 +33,7 @@ code {
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-  background-color: #243447;
+  background-color: #243a55;
 }
 
 .noScroll {

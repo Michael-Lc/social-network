@@ -33,6 +33,7 @@
 
 .username {
   color: white;
+  font-weight: bold;
   display: inline-block;
   padding: 5px;
   transition: 0.4s;

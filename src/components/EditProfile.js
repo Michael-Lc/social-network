@@ -133,7 +133,9 @@ export const EditProfile = (props) => {
           </div>
           <div className={styles.formGroup}>
             <span>
-              <Link to={{ pathname: `/` }}>Cancel</Link>
+              <Link to="" onClick={() => window.history.back()}>
+                Cancel
+              </Link>
             </span>
           </div>
         </form>
