@@ -39,3 +39,7 @@
 # RESPONSIVENESS!!!
 # remove user details from addPost // done
 # use transactions in updates
+
+Preserve email during login fail // done
+change firebase rules // done
+change home to regular route // done

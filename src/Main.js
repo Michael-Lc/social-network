@@ -35,14 +35,14 @@ export const Main = (props) => {
     <Router>
       {!userLoading ? (
         <Switch>
-          <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute exact path="/user/:id" component={User} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/user/:id" component={User} />
           <PrivateRoute
             exact
             path="/user/:id/update-profile"
             component={EditProfile}
           />
-          <PrivateRoute exact path="/post/:id" component={Comment} />
+          <Route exact path="/post/:id" component={Comment} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
         </Switch>

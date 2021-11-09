@@ -36,7 +36,11 @@ function PostList(props) {
         data.map((post) => (
           <div key={post.id} className={styles.post}>
             <div className={styles.postUser}>
-              <Link to={{ pathname: `/user/${post.userId}` }}>
+              <Link
+                to={{
+                  pathname: `/user/${post.userId}`,
+                }}
+              >
                 <img
                   src={post.profileImage}
                   alt=""
@@ -44,7 +48,11 @@ function PostList(props) {
                 />
               </Link>
               <span className={styles.username}>
-                <Link to={{ pathname: `/user/${post.userId}` }}>
+                <Link
+                  to={{
+                    pathname: `/user/${post.userId}`,
+                  }}
+                >
                   {post.username}
                 </Link>
               </span>

@@ -24,13 +24,15 @@ export const Signup = (props) => {
   };
 
   const handleSubmit = (event) => {
+    const { username, email } = event.target
+
     event.preventDefault();
     if (data.password !== data.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
     signup(data);
-    setData(initialState);
+    setData({...initialState, username, email});
     return;
   };
 

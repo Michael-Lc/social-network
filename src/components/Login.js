@@ -24,7 +24,7 @@ export const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     login(data);
-    setData(initialState);
+    setData({...initialState, email: event.target.email.value});
     return;
   };
 

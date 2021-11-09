@@ -57,8 +57,10 @@ function User(props) {
           className={styles.profilePicture}
           alt="Profile"
         />
-        <div className={styles.userName}>{userDetails.username}</div>
-        <div className={styles.description}>{userDetails.description}</div>
+        <div>
+          <div className={styles.userName}>{userDetails.username}</div>
+          <div className={styles.description}>{userDetails.description}</div>
+        </div>
       </div>
       <PostList data={posts} />
     </div>
